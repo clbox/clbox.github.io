@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://connorbox.github.io/sitemap.xml
+Sitemap: https://clbox.github.io/sitemap.xml
