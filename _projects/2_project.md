@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First-Principles Electron-Phonon Coupling for Surface Chemistry and Superconductivity
-description: with background image
+description:
 img: assets/img/surface_superhydride.png
 importance: 2
 category: work

@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  Nonadiabatic Dynamics and Energy Dissipation at Metal Surfaces
-description: with background image
+description:
 img: assets/img/h_surface.png
 importance: 1
 category: work
