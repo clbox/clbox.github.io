@@ -411,17 +411,17 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-nonadiabatic-dynamics-and-energy-dissipation-at-metal-surfaces",
           title: 'Nonadiabatic Dynamics and Energy Dissipation at Metal Surfaces',
-          description: "with background image",
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-first-principles-electron-phonon-coupling-for-surface-chemistry-and-superconductivity",
           title: 'First-Principles Electron-Phonon Coupling for Surface Chemistry and Superconductivity',
-          description: "with background image",
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
             },},{id: "projects-scalable-software-development-for-predictive-atomistic-simulations",
           title: 'Scalable Software Development for Predictive Atomistic Simulations',
-          description: "with background image",
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
             },},{
