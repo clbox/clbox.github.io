@@ -5,7 +5,7 @@ description:
 img: assets/img/surface_superhydride.png
 importance: 2
 category: work
-related_publications: true
+related_publications: false
 ---
 
 Electron-phonon interactions are at the heart of both vibrational energy dissipation in surface chemistry and pairing mechanisms in conventional superconductors. Yet, calculating these effects from first principles in real materials—especially at surfaces or in large, low-symmetry unit cells—has been notoriously difficult due to the computational cost of traditional plane-wave implementations.

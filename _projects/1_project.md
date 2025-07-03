@@ -5,7 +5,7 @@ description:
 img: assets/img/h_surface.png
 importance: 1
 category: work
-related_publications: true
+related_publications: false
 ---
 
 Understanding how molecules interact with metal surfaces underpins many technologies, from catalysis and corrosion to nanoscale electronics. Yet, conventional simulations often rely on the Born–Oppenheimer approximation, which neglects energy transfer between moving nuclei and excited electrons. My research advances nonadiabatic dynamics by developing and applying electronic friction methods that account for this crucial coupling between electrons and nuclear motion.
