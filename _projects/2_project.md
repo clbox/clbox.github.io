@@ -16,7 +16,6 @@ In surface science, this approach provides a direct route to compute phonon line
 
 This work opens new frontiers for accurate, scalable simulation of quantum coupling phenomena in surface chemistry and materials physics. The methods are publicly available in FHI-aims and already in use for vibrational spectroscopy, molecular dynamics with friction, and superconductivity design.
 
-
 {% cite douglas2021plasmonic %}
 {% cite box2023ab %}
 {% cite abbott2025roadmap %}
