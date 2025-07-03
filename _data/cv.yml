@@ -38,17 +38,18 @@
   type: time_table
   contents:
     - title: Research Fellow in Computational Surface Chemistry
+      supervisor: Prof. Reinhard Maurer
       institution: University of Warwick
       year: 2024 – present
       description:
         - Developing embedding methods in the FHI-aims code.
-        - Supervisor: Dr Reinhard Maurer.
     - title: Research Fellow in Computational Physical Chemistry
+      supervisor: Dr Gabriele Sosso.
       institution: University of Warwick
       year: 2024
       description:
         - Studied ice propagation in plant cell walls using molecular dynamics.
-        - Supervisor: Dr Gabriele Sosso.
+     
     - title: Freelance Software Developer
       institution: MS1P e.V. (Coventry, UK)
       year: 2024
@@ -56,6 +57,7 @@
         - Contracted to develop DFPT functionality in FHI-aims.
         - Created tutorials for FHI-aims summer school.
     - title: Research Fellow (ARCHER2 eCSE01-16)
+      supervisor: Prof. Reinhard J. Maurer, Dr Andrew Logsdail, Dr Volker Blum, Dr Mariana Rossi and Dr Christian Carbogno 
       institution: University of Warwick
       year: 2020 – 2021
       description:
