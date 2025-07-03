@@ -5,7 +5,7 @@ description:
 img: assets/img/algorithms.png
 importance: 3
 category: work
-related_publications: false
+related_publications: true
 ---
 
 Predictive atomistic simulations are at the heart of modern computational materials science and chemistry. However, enabling simulations of large and complex systems with quantum mechanical accuracy requires scalable, high-performance software that integrates advanced algorithms with modern computing architectures.
