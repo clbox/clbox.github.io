@@ -1,0 +1,107 @@
+{
+    "basics": {
+      "name": "Connor Lee Box",
+      "label": "Computational Surface Chemist",
+      "image": "",
+      "email": "connor.box@warwick.ac.uk",
+      "phone": "",
+      "url": "",
+      "summary": "Computational chemist with expertise in electronic structure methods and molecular dynamics. Developer in the FHI-aims code with experience in electronic friction, electron-phonon coupling, and density functional perturbation theory. Experienced in high-performance computing and collaborative scientific software projects.",
+      "location": {
+        "address": "",
+        "postalCode": "",
+        "city": "Coventry",
+        "countryCode": "GB",
+        "region": "West Midlands"
+      },
+      "profiles": [
+        {
+          "network": "ORCID",
+          "username": "0000-0001-7575-7161",
+          "url": "https://orcid.org/0000-0001-7575-7161"
+        }
+      ]
+    },
+    "work": [
+      {
+        "name": "University of Warwick",
+        "position": "Research Fellow in Computational Surface Chemistry",
+        "url": "https://warwick.ac.uk",
+        "startDate": "2024-12",
+        "endDate": "",
+        "summary": "Developing embedding methods in the FHI-aims electronic structure code.",
+        "highlights": [
+          "Supervisor: Prof. Reinhard Maurer"
+        ]
+      },
+      {
+        "name": "University of Warwick",
+        "position": "Research Fellow in Computational Physical Chemistry",
+        "startDate": "2024-08",
+        "endDate": "2024-12",
+        "summary": "Investigated ice propagation through plant cell walls using molecular dynamics.",
+        "highlights": [
+          "Supervisor: Prof. Gabriele Sosso"
+        ]
+      },
+      {
+        "name": "Molecular Simulations from First Principles e.V. (MS1P)",
+        "position": "Freelance Software Developer",
+        "startDate": "2024-01",
+        "endDate": "2024-09",
+        "summary": "Developed DFPT implementations in FHI-aims and created tutorials for summer schools."
+      },
+      {
+        "name": "University of Warwick",
+        "position": "Research Fellow",
+        "startDate": "2020-11",
+        "endDate": "2021-09",
+        "summary": "Technical staff on ARCHER2-eCSE01-16 project, refactoring DFPT in FHI-aims.",
+        "highlights": [
+          "Supervisors: R. Maurer, A. Logsdail, V. Blum, M. Rossi, C. Carbogno",
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "University of Warwick",
+        "area": "Chemistry",
+        "studyType": "PhD",
+        "startDate": "2018-07",
+        "endDate": "2024-01",
+        "courses": [],
+        "url": "https://warwick.ac.uk"
+      },
+      {
+        "institution": "University of York",
+        "area": "Chemistry",
+        "studyType": "MChem",
+        "startDate": "2014-10",
+        "endDate": "2018-07",
+        "courses": [],
+        "url": "https://york.ac.uk"
+      }
+    ],
+    "awards": [
+      {
+        "title": "PSI-k Collaborating Early-Career Investigators Finalist",
+        "date": "2025-01-01",
+        "awarder": "PSI-k",
+        "url": "",
+        "summary": "Finalist in CECI competition; awarded 500 EUR."
+      },
+      {
+        "title": "EPSRC PhD Studentship",
+        "date": "2018-09-01",
+        "awarder": "UKRI EPSRC",
+        "summary": ""
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Native speaker",
+        "icon": ""
+      }
+    ]
+  }
