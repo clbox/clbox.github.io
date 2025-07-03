@@ -2,96 +2,81 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Connor L. Box
+    - name: Email
+      value: connor.box@warwick.ac.uk
+    - name: ORCID
+      value: 0000-0001-7575-7161
     - name: Languages
-      value: English, German
+      value: English
+    - name: Location
+      value: Coventry, UK
+    - name: Citizenship
+      value: United Kingdom
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: PhD in Chemistry
+      institution: University of Warwick, UK
+      year: 2021 – 2024
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
+        - Studied electronic friction for simulating molecular dynamics on metal surfaces.
+        - Developer in the FHI-aims code, contributing to friction and phonon-coupling functionality.
+        - title: Additional Activities
           contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+            - Research Assistant position during PhD.
+            - Produced 6 publications, co-organised seminars and conferences.
+    - title: MChem in Chemistry (First Class with Distinction)
+      institution: University of York, UK
+      year: 2014 – 2018
       description:
-        - Description 1.
-        - Description 2.
+        - Final-year research project in theoretical chemistry.
+        - Awarded summer research project funding by EPSRC.
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Research Fellow in Computational Surface Chemistry
+      institution: University of Warwick
+      year: 2024 – present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Developing embedding methods in the FHI-aims code.
+        - Supervisor: Dr Reinhard Maurer.
+    - title: Research Fellow in Computational Physical Chemistry
+      institution: University of Warwick
+      year: 2024
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Studied ice propagation in plant cell walls using molecular dynamics.
+        - Supervisor: Dr Gabriele Sosso.
+    - title: Freelance Software Developer
+      institution: MS1P e.V. (Coventry, UK)
+      year: 2024
       description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+        - Contracted to develop DFPT functionality in FHI-aims.
+        - Created tutorials for FHI-aims summer school.
+    - title: Research Fellow (ARCHER2 eCSE01-16)
+      institution: University of Warwick
+      year: 2020 – 2021
+      description:
+        - Refactored and modularised DFPT code in FHI-aims.
+        - Work featured on ARCHER2 website and Twitter.
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2025
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - PSI-k Collaborating Early-Career Investigators (CECI) Finalist – 500 EUR award
+    - year: 2018–2023
       items:
-        - Max Planck Medal
+        - EPSRC PhD Studentship
+    - year: 2018
+      items:
+        - 50% discount for Sino-German Summer School in Beijing
+    - year: 2016
+      items:
+        - EPSRC-funded summer research project (1 of 3 awarded in department)
 
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
 
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+
