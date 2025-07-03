@@ -17,3 +17,7 @@ My work focuses on the development of scalable features within the FHI-aims all-
 * Contributions to community-wide infrastructure in density-functional perturbation theory (DFPT) using numeric atom-centered orbitals
 
 These developments have opened the door to first-principles simulations of metal surface chemistry, hydrogen dissociation, superconductivity in superhydrides, and electronic friction effects across thousands of atoms — all with fully quantum mechanical accuracy.
+
+{% cite box2023ab %}
+{% cite abbott2025roadmap %}
+{% cite box2025density%}
