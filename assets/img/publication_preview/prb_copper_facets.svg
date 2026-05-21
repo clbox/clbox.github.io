@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="Physical Review B copper facets thumbnail">
+  <rect width="360" height="360" fill="#f5f4ea"/>
+  <text x="180" y="28" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="18" fill="#222">Initial: v=2 J=1</text>
+
+  <g stroke="#2f2f2f" stroke-width="1.2">
+    <rect x="34" y="34" width="154" height="140" fill="#f8f4be"/>
+    <rect x="194" y="34" width="154" height="140" fill="#f8f4be"/>
+    <rect x="34" y="184" width="154" height="140" fill="#f8f4be"/>
+    <rect x="194" y="184" width="154" height="140" fill="#f8f4be"/>
+  </g>
+
+  <g opacity="0.96">
+    <polygon points="34,34 34,174 188,174 188,156 162,144 134,124 108,98 86,70 62,48" fill="#4e8fc0"/>
+    <polygon points="34,34 62,48 86,70 108,98 134,124 162,144 188,156 188,124 162,112 136,92 112,72 88,50 64,34" fill="#61c1cf"/>
+    <polygon points="34,34 64,34 88,50 112,72 136,92 162,112 188,124 188,96 162,84 136,66 112,52 84,34" fill="#a6d7b5"/>
+
+    <polygon points="194,34 194,174 348,174 348,158 322,150 294,138 266,118 238,94 216,60" fill="#4e8fc0"/>
+    <polygon points="194,34 216,60 238,94 266,118 294,138 322,150 348,158 348,130 322,122 296,110 268,90 240,72 214,46" fill="#61c1cf"/>
+    <polygon points="194,34 214,46 240,72 268,90 296,110 322,122 348,130 348,102 322,94 296,82 270,66 242,50 214,34" fill="#a6d7b5"/>
+
+    <polygon points="34,184 34,324 188,324 188,302 162,294 132,278 104,254 78,232 34,220" fill="#4e8fc0"/>
+    <polygon points="34,220 78,232 104,254 132,278 162,294 188,302 188,272 162,264 134,248 108,228 82,214 34,204" fill="#61c1cf"/>
+    <polygon points="34,204 82,214 108,228 134,248 162,264 188,272 188,240 162,232 136,216 110,202 82,188 34,184" fill="#a6d7b5"/>
+
+    <polygon points="194,184 194,324 348,324 348,306 320,296 292,284 264,260 236,236 194,214" fill="#4e8fc0"/>
+    <polygon points="194,214 236,236 264,260 292,284 320,296 348,306 348,274 320,264 292,248 264,224 236,204 194,194" fill="#61c1cf"/>
+    <polygon points="194,194 236,204 264,224 292,248 320,264 348,274 348,242 320,232 292,216 266,198 238,188 194,184" fill="#a6d7b5"/>
+  </g>
+
+  <g fill="#f8f4be" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    <text x="10" y="124" transform="rotate(-90 10 124)">P<tspan baseline-shift="sub" font-size="11">transition</tspan></text>
+    <text x="10" y="274" transform="rotate(-90 10 274)">P<tspan baseline-shift="sub" font-size="11">transition</tspan></text>
+  </g>
+
+  <g fill="#111" font-family="Georgia, Times New Roman, serif">
+    <text x="48" y="206" font-size="17">Sticking</text>
+    <text x="54" y="238" font-size="13">v=0</text>
+    <text x="54" y="266" font-size="13">v=1</text>
+    <text x="48" y="292" font-size="13">v=2</text>
+    <text x="120" y="302" font-size="13">v&gt;2</text>
+  </g>
+
+  <g fill="#fff" stroke="#3a3a3a" stroke-width="1">
+    <rect x="115" y="74" width="50" height="22" rx="4" fill="#444"/>
+    <text x="140" y="89" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#fff">Cu(111)</text>
+    <rect x="276" y="74" width="50" height="22" rx="4" fill="#444"/>
+    <text x="301" y="89" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#fff">Cu(100)</text>
+    <rect x="115" y="224" width="50" height="22" rx="4" fill="#444"/>
+    <text x="140" y="239" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#fff">Cu(110)</text>
+    <rect x="276" y="224" width="50" height="22" rx="4" fill="#444"/>
+    <text x="301" y="239" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#fff">Cu(211)</text>
+  </g>
+
+  <g opacity="0.95">
+    <g fill="#4c6a67" stroke="#3a4d4b" stroke-width="0.7">
+      <circle cx="134" cy="44" r="8"/><circle cx="146" cy="44" r="8"/><circle cx="158" cy="44" r="8"/>
+      <circle cx="128" cy="56" r="8"/><circle cx="140" cy="56" r="8"/><circle cx="152" cy="56" r="8"/><circle cx="164" cy="56" r="8"/>
+      <circle cx="128" cy="68" r="8"/><circle cx="140" cy="68" r="8"/><circle cx="152" cy="68" r="8"/><circle cx="164" cy="68" r="8"/>
+      <circle cx="128" cy="80" r="8"/><circle cx="140" cy="80" r="8"/><circle cx="152" cy="80" r="8"/>
+    </g>
+    <g fill="#59749b" stroke="#3f536e" stroke-width="0.7">
+      <circle cx="294" cy="48" r="8"/><circle cx="306" cy="48" r="8"/><circle cx="318" cy="48" r="8"/>
+      <circle cx="288" cy="60" r="8"/><circle cx="300" cy="60" r="8"/><circle cx="312" cy="60" r="8"/>
+      <circle cx="288" cy="72" r="8"/><circle cx="300" cy="72" r="8"/><circle cx="312" cy="72" r="8"/>
+      <circle cx="288" cy="84" r="8"/><circle cx="300" cy="84" r="8"/><circle cx="312" cy="84" r="8"/>
+    </g>
+    <g fill="#aa5a06" stroke="#7a3e00" stroke-width="0.7">
+      <circle cx="130" cy="190" r="8"/><circle cx="144" cy="190" r="8"/><circle cx="158" cy="190" r="8"/>
+      <circle cx="124" cy="202" r="8"/><circle cx="138" cy="202" r="8"/><circle cx="152" cy="202" r="8"/><circle cx="166" cy="202" r="8"/>
+      <circle cx="124" cy="214" r="8"/><circle cx="138" cy="214" r="8"/><circle cx="152" cy="214" r="8"/><circle cx="166" cy="214" r="8"/>
+      <circle cx="124" cy="226" r="8"/><circle cx="138" cy="226" r="8"/><circle cx="152" cy="226" r="8"/><circle cx="166" cy="226" r="8"/>
+    </g>
+    <g fill="#999" stroke="#777" stroke-width="0.7">
+      <circle cx="300" cy="190" r="8"/><circle cx="300" cy="202" r="8"/><circle cx="300" cy="214" r="8"/><circle cx="300" cy="226" r="8"/>
+      <circle cx="312" cy="196" r="8"/><circle cx="312" cy="208" r="8"/><circle cx="312" cy="220" r="8"/>
+      <circle cx="288" cy="196" r="8"/><circle cx="288" cy="208" r="8"/><circle cx="288" cy="220" r="8"/>
+    </g>
+    <g fill="#fff">
+      <circle cx="140" cy="60" r="2.5"/><circle cx="300" cy="60" r="2.5"/><circle cx="140" cy="208" r="2.5"/><circle cx="288" cy="208" r="2.5"/>
+      <circle cx="140" cy="68" r="2.5"/><circle cx="306" cy="66" r="2.5"/><circle cx="146" cy="214" r="2.5"/><circle cx="288" cy="214" r="2.5"/>
+    </g>
+  </g>
+
+  <g stroke="#111" stroke-width="1.2" fill="none">
+    <line x1="126" y1="294" x2="158" y2="312"/>
+    <path d="M158 312 L152 311 M158 312 L155 306"/>
+  </g>
+
+  <text x="180" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111">Collision energy (eV)</text>
+</svg>

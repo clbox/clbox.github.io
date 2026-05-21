@@ -26,6 +26,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Since January 2026, Connor Box has worked as a Research Associate in the Yusuf Hamied Department of Chemistry at the University of Cambridge, supervised by Prof. Mariana Rossi. His research focuses on theoretical and computational chemistry, particularly the development of methods to study nonadiabatic dynamics and electron-phonon interactions at surfaces.
+Connor Box is a Research Associate in the Yusuf Hamied Department of Chemistry at the University of Cambridge, supervised by Prof. Mariana Rossi. His research focuses on theoretical and computational chemistry, particularly the development of methods to study nonadiabatic dynamics and electron-phonon interactions in materials.
 
-Connor completed his PhD under the supervision of Prof. Reinhard Maurer at Warwick, where he worked on electronic friction and quantum dynamics in gas–surface scattering. He holds an MChem degree from the University of York.
+Connor completed his PhD under the supervision of Prof. Reinhard Maurer at Warwick, where he worked on theoretical technniques for dissipative dynamics in gas–surface scattering. He holds an MChem degree from the University of York.
