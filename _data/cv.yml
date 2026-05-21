@@ -37,10 +37,16 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Research Associate
+      supervisor: Prof. Mariana Rossi
+      institution: University of Cambridge
+      year: 2026 – present
+      description:
+        - Yusuf Hamied Department of Chemistry.
     - title: Research Fellow in Computational Surface Chemistry
       supervisor: Prof. Reinhard Maurer
       institution: University of Warwick
-      year: 2024 – present
+      year: 2024 – 2025
       description:
         - Developing embedding methods in the FHI-aims code.
     - title: Research Fellow in Computational Physical Chemistry
@@ -79,6 +85,5 @@
     - year: 2016
       items:
         - EPSRC-funded summer research project (1 of 3 awarded in department)
-
 
 

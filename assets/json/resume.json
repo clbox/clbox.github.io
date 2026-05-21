@@ -10,9 +10,9 @@
       "location": {
         "address": "",
         "postalCode": "",
-        "city": "Coventry",
+        "city": "Cambridge",
         "countryCode": "GB",
-        "region": "West Midlands"
+        "region": "Cambridgeshire"
       },
       "profiles": [
         {
@@ -24,11 +24,22 @@
     },
     "work": [
       {
+        "name": "University of Cambridge",
+        "position": "Research Associate",
+        "url": "https://cam.ac.uk",
+        "startDate": "2026-01",
+        "endDate": "",
+        "summary": "Research Associate in the Yusuf Hamied Department of Chemistry.",
+        "highlights": [
+          "Supervisor: Prof. Mariana Rossi"
+        ]
+      },
+      {
         "name": "University of Warwick",
         "position": "Research Fellow in Computational Surface Chemistry",
         "url": "https://warwick.ac.uk",
         "startDate": "2024-12",
-        "endDate": "",
+        "endDate": "2025-12",
         "summary": "Developing embedding methods in the FHI-aims electronic structure code.",
         "highlights": [
           "Supervisor: Prof. Reinhard Maurer"
@@ -58,7 +69,7 @@
         "endDate": "2021-09",
         "summary": "Technical staff on ARCHER2-eCSE01-16 project, refactoring DFPT in FHI-aims.",
         "highlights": [
-          "Supervisors: R. Maurer, A. Logsdail, V. Blum, M. Rossi, C. Carbogno",
+          "Supervisors: R. Maurer, A. Logsdail, V. Blum, M. Rossi, C. Carbogno"
         ]
       }
     ],
