@@ -16,7 +16,7 @@ Understanding how molecules exchange energy with metal surfaces is central to ca
 
 I have developed and applied electronic-friction-based approaches that resolve how energy loss depends on molecular mode, collision energy, and surface facet. This work has shown when room-temperature scattering benchmarks are insufficient, when nonadiabatic effects become quantitatively important, and how friction models can be made predictive from first principles rather than used phenomenologically.
 
-## What my future group would do
+## What I aim to do in the future
 
 My future group would extend these ideas toward chemically complex interfaces, realistic catalytic environments, and stronger coupling between theory and experiment. The goal is to build transferable nonadiabatic simulation strategies that can explain measured dynamics and guide the design of interfaces where energy flow is a controllable part of function.
 

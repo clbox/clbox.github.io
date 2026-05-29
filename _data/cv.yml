@@ -40,13 +40,13 @@
       institution: University of Cambridge, UK
       year: 2026 – present
       description:
-        - Developing first-principles methods for nonadiabatic dynamics and electron-phonon coupling in materials.
+        - Developing first-principles methods for nonadiabatic dynamics with nuclear quantum effects.
     - title: Research Fellow in Computational Surface Chemistry
       supervisor: Prof. Reinhard Maurer
       institution: University of Warwick
       year: 2024 – 2025
       description:
-        - Developing embedding methods in the FHI-aims code.
+        - Advancing electron-phonon coupling methods in FHI-aims.
     - title: Research Fellow in Computational Physical Chemistry
       supervisor: Dr Gabriele Sosso.
       institution: University of Warwick
@@ -83,4 +83,3 @@
     - year: 2016
       items:
         - EPSRC-funded summer research project (1 of 3 awarded in department)
-

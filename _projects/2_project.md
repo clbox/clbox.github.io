@@ -16,7 +16,7 @@ Electron-phonon interactions control vibrational lifetimes, nonadiabatic energy 
 
 I develop density-functional perturbation theory with numerical atom-centered orbitals in FHI-aims, enabling first-principles electron-phonon calculations in systems that are challenging for more conventional approaches. This has created a route to phonon linewidths, adsorbate friction, Eliashberg functions, and superconducting critical temperatures within one coherent framework.
 
-## What my future group would do
+## What I aim to do in the future
 
 My future group would push this framework toward predictive electron-phonon materials design across surfaces, low-dimensional systems, and superconductors. A central objective would be to unify dissipation, spectroscopy, and superconducting response in workflows that are efficient enough for wide materials exploration but rigorous enough for quantitative comparison with experiment.
 

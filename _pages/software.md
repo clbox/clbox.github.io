@@ -19,15 +19,11 @@ nav_order: 4
 
   <section class="software-card">
     <h2><a href="https://ipi-code.org/">i-PI</a></h2>
-    <p>i-PI provides a flexible framework for molecular dynamics and advanced simulation workflows. I use it as part of a broader strategy for coupling electronic-structure calculations to dynamical models of dissipation, relaxation, and driven atomistic motion.</p>
+    <p>i-PI provides a flexible framework for molecular dynamics and advanced simulation workflows, including approaches based on nuclear quantum effects and the ring-polymer formalism. I use it as part of a broader strategy for coupling electronic-structure calculations to dissipative dynamics, quantum nuclei, and driven atomistic motion.</p>
   </section>
 
   <section class="software-card">
-    <h2>NQCD</h2>
-    <p>NQCD-related workflows are an important part of how I think about nonadiabatic quantum-classical dynamics in practice. They help connect friction models, reduced descriptions of energy transfer, and explicit simulation pipelines for interfacial and materials problems.</p>
+    <h2><a href="https://nqcd.github.io/NQCDynamics.jl/stable/">NQCD</a></h2>
+    <p>NQCD is a valuable platform for nonadiabatic quantum-classical dynamics, with many methods implemented using efficient libraries and modern software design. It makes it possible to compare different nonadiabatic approaches on equal footing, which is essential for understanding when specific approximations succeed, fail, or capture distinct dynamical regimes.</p>
   </section>
-</div>
-
-<div class="collab-note">
-  <strong>Software collaborations.</strong> I am particularly interested in collaborations that connect method development to robust implementation, benchmarking, and community use across electronic structure, atomistic dynamics, and quantum energy-transfer problems.
 </div>
