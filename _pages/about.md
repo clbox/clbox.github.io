@@ -6,7 +6,7 @@ subtitle: <a href='#'>Theoretical and Computational Chemist</a>, University of C
 
 profile:
   align: right
-  image: me.jpeg
+  image: me.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Yusuf Hamied Department of Chemistry</p>

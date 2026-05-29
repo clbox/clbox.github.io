@@ -194,11 +194,17 @@ ul.task-list input[type="checkbox"] {
 
 .profile {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  figure {
+    margin-bottom: 0.6rem;
+  }
 
   .more-info {
     margin-bottom: 10px;
-    margin-top: 8px;
-    padding-bottom: 0.35rem;
+    margin-top: 0;
+    padding-bottom: 0.7rem;
     font-family: monospace;
     line-height: 1.45;
 
@@ -720,6 +726,26 @@ footer.sticky-bottom {
 }
 
 .software-card {
+  display: flex;
+  flex-direction: column;
+
+  .software-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .software-logo {
+    display: block;
+    max-width: 150px;
+    max-height: 54px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
   h2 {
     margin-bottom: 0.7rem;
     font-size: 1.35rem;
