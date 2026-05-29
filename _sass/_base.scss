@@ -696,6 +696,12 @@ footer.sticky-bottom {
   }
 }
 
+@media (min-width: 576px) {
+  .home-hero {
+    min-height: 28rem;
+  }
+}
+
 .vision-panel,
 .software-card {
   padding: 1.45rem 1.55rem;
