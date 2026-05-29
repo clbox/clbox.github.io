@@ -673,8 +673,16 @@ footer.sticky-bottom {
 .home-hero {
   padding: 1.5rem 1.7rem;
   border-radius: 1.25rem;
-  background: linear-gradient(135deg, rgba(236, 246, 252, 0.95) 0%, rgba(244, 241, 224, 0.92) 100%);
-  border: 1px solid rgba(133, 160, 179, 0.25);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--global-card-bg-color) 78%, var(--global-theme-color) 10%) 0%,
+    color-mix(in srgb, var(--global-card-bg-color) 88%, var(--global-bg-color)) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--global-theme-color) 22%, var(--global-divider-color));
+
+  p {
+    color: var(--global-text-color);
+  }
 
   .home-lead {
     margin-bottom: 0.9rem;
