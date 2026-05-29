@@ -14,11 +14,11 @@ Predictive atomistic science depends on software that is scientifically rigorous
 
 ## What I've done
 
-My work includes scalable method development in FHI-aims, including electron-phonon coupling, superconductivity workflows, phonon linewidths, and MPI-parallel friction tensor calculations. I also contribute to the broader software ecosystem around atomistic simulation, with an emphasis on maintainable implementations, interoperability, and tools that connect electronic structure to dynamics.
+My work includes scalable method development in FHI-aims, including real-space electron-phonon coupling, superconductivity workflows, phonon linewidths, and MPI-parallel friction tensor calculations. These efficient implementations are designed to make advanced methods practical for larger unit cells, more complex materials, surfaces, and low-dimensional systems. I also contribute to the broader software ecosystem around atomistic simulation, with an emphasis on maintainable implementations, interoperability, and tools that connect electronic structure to dynamics.
 
 ## What I aim to do in the future
 
-My future group would treat software as core research infrastructure rather than support work. I want to build open, high-quality computational platforms that make advanced quantum-dynamical and electron-phonon methods routine for surface chemistry and materials discovery, while also training researchers who can move fluently between theory, implementation, and application.
+I want to treat software as core research infrastructure rather than support work. The long-term goal is to build open, high-quality platforms that make advanced real-space electron-phonon, superconductivity, and nonadiabatic-dynamics methods routine for surface chemistry and materials discovery, and to integrate them with AI and ML acceleration so that key observables can be computed at realistic scale without giving up physical transparency.
 
 {% cite box2023ab %}
 {% cite abbott2025roadmap %}
