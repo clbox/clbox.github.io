@@ -1,20 +1,24 @@
 ---
 layout: page
 title: First-Principles Electron-Phonon Coupling for Surface Chemistry and Superconductivity
-description:
+description: Electron-phonon coupling from NAO-based DFPT for surface chemistry and superconductivity.
 img: assets/img/surface_superhydride.png
 importance: 2
 category: work
 related_publications: true
 ---
 
-Electron-phonon interactions are at the heart of both vibrational energy dissipation in surface chemistry and pairing mechanisms in conventional superconductors. Yet, calculating these effects from first principles in real materials—especially at surfaces or in large, low-symmetry unit cells—has been notoriously difficult due to the computational cost of traditional plane-wave implementations.
+## Why it matters
 
-I develop and apply density-functional perturbation theory (DFPT) for electron-phonon coupling using numerical atom-centered orbitals (NAOs) in the FHI-aims software package. This enables simulations on large, realistic systems, including catalytic metal surfaces and complex superhydride crystals relevant to high-temperature superconductivity.
+Electron-phonon interactions control vibrational lifetimes, nonadiabatic energy dissipation, and conventional superconductivity. To study these effects in realistic materials, theory needs to be both accurate and scalable enough for surfaces, interfaces, and complex low-symmetry crystals.
 
-In surface science, this approach provides a direct route to compute phonon linewidths, mode lifetimes, and electronic friction for adsorbates interacting with metallic substrates. In superconductivity research, we use these tools to calculate Eliashberg functions and predict critical temperatures (Tc) in emerging hydride-based superconductors under extreme pressure.
+## What I've done
 
-This work opens new frontiers for accurate, scalable simulation of quantum coupling phenomena in surface chemistry and materials physics. The methods are publicly available in FHI-aims and already in use for vibrational spectroscopy, molecular dynamics with friction, and superconductivity design.
+I develop density-functional perturbation theory with numerical atom-centered orbitals in FHI-aims, enabling first-principles electron-phonon calculations in systems that are challenging for more conventional approaches. This has created a route to phonon linewidths, adsorbate friction, Eliashberg functions, and superconducting critical temperatures within one coherent framework.
+
+## What my future group would do
+
+My future group would push this framework toward predictive electron-phonon materials design across surfaces, low-dimensional systems, and superconductors. A central objective would be to unify dissipation, spectroscopy, and superconducting response in workflows that are efficient enough for wide materials exploration but rigorous enough for quantitative comparison with experiment.
 
 {% cite douglas2021plasmonic %}
 {% cite box2023ab %}

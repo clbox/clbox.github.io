@@ -2,7 +2,7 @@
 layout: page
 title: Research Areas
 permalink: /projects/
-description: Ongoing research topics I'm interested in
+description: A connected research program in nonadiabatic dynamics, electron-phonon coupling, and scientific software.
 nav: true
 nav_order: 3
 display_categories: [work, fun]

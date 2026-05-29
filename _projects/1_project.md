@@ -1,16 +1,24 @@
 ---
 layout: page
 title:  Nonadiabatic Dynamics and Energy Dissipation at Metal Surfaces
-description:
+description: Predictive first-principles models of electronic friction and nonadiabatic energy transfer at metal surfaces.
 img: assets/img/h_surface.png
 importance: 1
 category: work
 related_publications: true
 ---
 
-Understanding how molecules interact with metal surfaces underpins many technologies, from catalysis and corrosion to nanoscale electronics. Yet, conventional simulations often rely on the Born–Oppenheimer approximation, which neglects energy transfer between moving nuclei and excited electrons. My research advances nonadiabatic dynamics by developing and applying electronic friction methods that account for this crucial coupling between electrons and nuclear motion.
+## Why it matters
 
-I’ve demonstrated that energy dissipation through electronic friction plays a mode- and facet-specific role in the scattering and relaxation of hydrogen atoms at metal surfaces. These insights reveal the limitations of simplistic benchmarks and show how nonadiabatic energy loss can be quantitatively predicted from first principles. This line of work not only deepens our fundamental understanding of surface dynamics but also helps identify when advanced methods are essential for predictive accuracy.
+Understanding how molecules exchange energy with metal surfaces is central to catalysis, corrosion, hot-carrier chemistry, and nanoscale devices. Standard Born-Oppenheimer dynamics often misses the transfer of energy into low-lying electronic excitations, which means it can fail precisely when dissipation controls reactivity and relaxation.
+
+## What I've done
+
+I have developed and applied electronic-friction-based approaches that resolve how energy loss depends on molecular mode, collision energy, and surface facet. This work has shown when room-temperature scattering benchmarks are insufficient, when nonadiabatic effects become quantitatively important, and how friction models can be made predictive from first principles rather than used phenomenologically.
+
+## What my future group would do
+
+My future group would extend these ideas toward chemically complex interfaces, realistic catalytic environments, and stronger coupling between theory and experiment. The goal is to build transferable nonadiabatic simulation strategies that can explain measured dynamics and guide the design of interfaces where energy flow is a controllable part of function.
 
 {% cite box2020determining %}
 {% cite litman2022dissipativeI %}
@@ -18,4 +26,3 @@ I’ve demonstrated that energy dissipation through electronic friction plays a 
 {% cite zhang2022stereodynamics %}
 {% cite box2024room %}
 {% cite stark2025nonadiabatic %}
-

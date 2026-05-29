@@ -4,13 +4,11 @@
     - name: Full Name
       value: Connor L. Box
     - name: Email
-      value: connor.box@warwick.ac.uk
+      value: clb228@cam.ac.uk
     - name: ORCID
       value: 0000-0001-7575-7161
-    - name: Languages
-      value: English
     - name: Location
-      value: Coventry, UK
+      value: Cambridge, UK
     - name: Citizenship
       value: United Kingdom
 
@@ -39,10 +37,10 @@
   contents:
     - title: Research Associate
       supervisor: Prof. Mariana Rossi
-      institution: University of Cambridge
+      institution: University of Cambridge, UK
       year: 2026 – present
       description:
-        - Yusuf Hamied Department of Chemistry.
+        - Developing first-principles methods for nonadiabatic dynamics and electron-phonon coupling in materials.
     - title: Research Fellow in Computational Surface Chemistry
       supervisor: Prof. Reinhard Maurer
       institution: University of Warwick
@@ -85,5 +83,4 @@
     - year: 2016
       items:
         - EPSRC-funded summer research project (1 of 3 awarded in department)
-
 

@@ -653,6 +653,87 @@ footer.sticky-bottom {
   }
 }
 
+// Homepage and software
+
+.home-hero,
+.vision-panel,
+.collab-note,
+.software-intro {
+  margin: 1.5rem 0 2rem;
+}
+
+.home-hero {
+  padding: 1.5rem 1.7rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(236, 246, 252, 0.95) 0%, rgba(244, 241, 224, 0.92) 100%);
+  border: 1px solid rgba(133, 160, 179, 0.25);
+
+  .home-lead {
+    margin-bottom: 0.9rem;
+    font-size: 1.28rem;
+    line-height: 1.55;
+    color: var(--global-text-color);
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.vision-panel,
+.software-card {
+  padding: 1.45rem 1.55rem;
+  border-radius: 1.15rem;
+  background: var(--global-card-bg-color);
+  border: 1px solid color-mix(in srgb, var(--global-divider-color) 70%, transparent);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+}
+
+.vision-panel {
+  h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.collab-note {
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--global-theme-color);
+  background: color-mix(in srgb, var(--global-card-bg-color) 88%, #edf5fb);
+  border-radius: 0.8rem;
+
+  strong {
+    color: var(--global-text-color);
+  }
+}
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.software-card {
+  h2 {
+    margin-bottom: 0.7rem;
+    font-size: 1.35rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .software-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 // Projects
 
 .projects {
