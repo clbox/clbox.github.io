@@ -28,16 +28,16 @@ latest_posts:
 
 <div class="home-hero">
   <p class="home-lead">Connor Box develops first-principles methods for nonadiabatic dynamics and electron-phonon coupling, with the aim of making dissipative chemistry and quantum energy transfer predictive across surfaces and materials.</p>
-  <p>His research program connects method development, scientific software, and applications in surface chemistry and superconductivity. By linking electronic friction, lattice dynamics, and scalable electronic-structure theory, he builds computational tools that can explain measured energy flow and enable genuinely predictive simulation.</p>
+  <p>His research program connects method development, scientific software, and applications in surface chemistry and superconductivity. By linking electronic friction, lattice dynamics, nuclear quantum effects, and scalable electronic-structure theory, he builds computational tools that can explain measured energy flow and enable genuinely predictive simulation in real materials.</p>
 </div>
 
 <div class="vision-panel">
   <h2>Research Vision</h2>
-  <p>I want to establish a research program that treats nonadiabatic energy exchange as a quantitative, first-principles design problem rather than a qualitative correction. The long-term goal is to build robust theoretical and software frameworks that connect electronic friction, electron-phonon coupling, and quantum dynamics across catalysis, interfacial chemistry, and superconducting materials.</p>
-  <p>At Cambridge, I am continuing to develop this agenda through new methods in FHI-aims and related workflows, with an emphasis on transparent models, scalable implementations, and close contact with experiment and materials discovery.</p>
+  <p>I want to establish a research program that treats nonadiabatic energy exchange and quantum nuclear motion as quantitative, first-principles design problems rather than qualitative corrections. The long-term goal is to build robust theoretical and software frameworks that connect electronic friction, electron-phonon coupling, ring-polymer dynamics, and quantum dynamics across catalysis, interfacial chemistry, and superconducting materials.</p>
+  <p>At Cambridge, working with Mariana Rossi, I am extending this agenda toward nuclear quantum effects and ring-polymer methods that can capture the quantum behaviour of light atoms such as hydrogen. I am especially interested in how these effects shape interfacial chemistry, surface dynamics, and superconductivity in systems such as metallic hydrides.</p>
 </div>
 
-<p>Connor is a Research Associate in the Yusuf Hamied Department of Chemistry at the University of Cambridge. He completed his PhD at the University of Warwick, where he worked on dissipative dynamics in gas-surface scattering, and he holds an MChem degree from the University of York.</p>
+<p>Connor is a Research Associate in the Yusuf Hamied Department of Chemistry at the University of Cambridge, where he is developing methods for nonadiabatic dynamics with nuclear quantum effects. He completed his PhD at the University of Warwick, where he worked on dissipative dynamics in gas-surface scattering, and he holds an MChem degree from the University of York.</p>
 
 <div class="collab-note">
   <strong>Prospective collaborators.</strong> I am interested in working with experimentalists, electronic-structure developers, and researchers in surface science, quantum dynamics, and superconductivity. If your work involves nonadiabatic energy transfer, electron-phonon physics, or scalable atomistic simulation, please get in touch.
