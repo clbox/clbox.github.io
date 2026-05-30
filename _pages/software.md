@@ -8,7 +8,7 @@ nav_order: 4
 ---
 
 <div class="software-intro">
-  <p>This research program is built around software as scientific infrastructure: methods need to be implemented, scaled, and connected across electronic structure, dynamics, and data analysis before they can become predictive tools for chemistry and materials.</p>
+  <p>I see software as an essential part of how modern theoretical chemistry and materials modelling become genuinely predictive. New methods only become useful when they are implemented robustly, scaled efficiently, and connected across electronic structure, dynamics, and data analysis. For me, building software is therefore not separate from the science itself, but part of making first-principles ideas usable for real materials and real chemical problems.</p>
 </div>
 
 <div class="software-grid">
