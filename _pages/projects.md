@@ -2,7 +2,7 @@
 layout: page
 title: Research Areas
 permalink: /projects/
-description: A connected research program in nonadiabatic dynamics, electron-phonon coupling, and scientific software.
+description: I am interested in how electrons couple to atomic motion in real materials, and how that coupling gives rise to measurable phenomena across chemistry and materials physics. At interfaces, for example, vibrations can excite electrons and drive nonadiabatic energy loss, while in superconductors related electron-phonon interactions determine collective behaviour and critical temperatures. I use real-space first-principles methods together with efficient software implementations to study these effects in complex materials, surfaces, and low-dimensional systems.
 nav: true
 nav_order: 3
 display_categories: [work, fun]
