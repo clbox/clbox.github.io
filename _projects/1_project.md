@@ -18,7 +18,7 @@ I have developed and applied electronic-friction-based approaches that resolve h
 
 ## What I aim to do in the future
 
-My future group would extend these ideas toward chemically complex interfaces, realistic catalytic environments, and stronger coupling between theory and experiment. The goal is to build transferable nonadiabatic simulation strategies that can explain measured dynamics and guide the design of interfaces where energy flow is a controllable part of function.
+In future I aim to extend these ideas toward chemically complex interfaces, realistic catalytic environments, and stronger coupling between theory and experiment. The goal is to build transferable nonadiabatic simulation strategies that can explain measured dynamics and guide the design of interfaces where energy flow is a controllable part of function.
 
 {% cite box2020determining %}
 {% cite litman2022dissipativeI %}
