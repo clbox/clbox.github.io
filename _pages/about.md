@@ -2,6 +2,7 @@
 layout: about
 title: About
 permalink: /
+description: Connor L. Box is a theoretical and computational chemist at the University of Cambridge developing first-principles methods for nonadiabatic dynamics, electron-phonon coupling, and nuclear quantum effects.
 subtitle: <a href='#'>Theoretical and Computational Chemist</a>, University of Cambridge.
 
 profile:
