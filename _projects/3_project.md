@@ -4,7 +4,6 @@ title: Scalable Software Development for Predictive Atomistic Simulations
 description: Scalable scientific software linking electronic structure, dynamics, and community methods development.
 img: assets/img/algorithms.png
 importance: 3
-category: work
 related_publications: true
 ---
 

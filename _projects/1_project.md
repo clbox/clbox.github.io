@@ -4,7 +4,6 @@ title:  Nonadiabatic Dynamics and Energy Dissipation at Metal Surfaces
 description: Predictive first-principles models of electronic friction and nonadiabatic energy transfer at metal surfaces.
 img: assets/img/h_surface.png
 importance: 1
-category: work
 related_publications: true
 ---
 

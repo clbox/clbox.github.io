@@ -4,7 +4,6 @@ title: First-Principles Electron-Phonon Coupling for Surface Chemistry and Super
 description: Electron-phonon coupling from NAO-based DFPT for surface chemistry and superconductivity.
 img: assets/img/surface_superhydride.png
 importance: 2
-category: work
 related_publications: true
 ---
 

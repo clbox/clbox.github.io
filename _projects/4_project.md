@@ -4,7 +4,6 @@ title: Nuclear Quantum Effects in Interfacial Chemistry and Superconducting Mate
 description: Ring-polymer and quantum-dynamical methods for light atoms, interfaces, and hydrogen-rich materials.
 img: assets/img/publication_preview/instanton.png
 importance: 4
-category: work
 related_publications: true
 ---
 

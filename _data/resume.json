@@ -1,0 +1,95 @@
+{
+  "basics": {
+    "name": "Connor L. Box",
+    "label": "Theoretical and Computational Chemist",
+    "email": "clb228@cam.ac.uk",
+    "summary": "Theoretical and computational chemist developing first-principles methods for nonadiabatic dynamics, electron-phonon coupling, and predictive atomistic simulation.",
+    "location": {
+      "city": "Cambridge",
+      "countryCode": "GB",
+      "region": "Cambridgeshire"
+    },
+    "profiles": [
+      {
+        "network": "ORCID",
+        "username": "0000-0001-7575-7161",
+        "url": "https://orcid.org/0000-0001-7575-7161"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "University of Cambridge",
+      "position": "Research Associate",
+      "url": "https://www.cam.ac.uk/",
+      "startDate": "2026",
+      "endDate": "",
+      "summary": "Developing first-principles methods for nonadiabatic dynamics with nuclear quantum effects in the Yusuf Hamied Department of Chemistry.",
+      "highlights": ["Supervisor: Prof. Mariana Rossi"]
+    },
+    {
+      "name": "University of Warwick",
+      "position": "Research Fellow in Computational Surface Chemistry",
+      "url": "https://warwick.ac.uk/",
+      "startDate": "2024",
+      "endDate": "2025",
+      "summary": "Advanced electron-phonon coupling methods in the FHI-aims electronic-structure code.",
+      "highlights": ["Supervisor: Prof. Reinhard Maurer"]
+    },
+    {
+      "name": "University of Warwick",
+      "position": "Research Fellow in Computational Physical Chemistry",
+      "url": "https://warwick.ac.uk/",
+      "startDate": "2024",
+      "endDate": "2024",
+      "summary": "Investigated ice propagation through plant cell walls using molecular dynamics.",
+      "highlights": ["Supervisor: Prof. Gabriele Sosso"]
+    },
+    {
+      "name": "Molecular Simulations from First Principles e.V. (MS1P)",
+      "position": "Freelance Software Developer",
+      "startDate": "2024",
+      "endDate": "2024",
+      "summary": "Developed DFPT implementations in FHI-aims and created tutorials for summer schools."
+    },
+    {
+      "name": "University of Warwick",
+      "position": "Research Fellow",
+      "url": "https://warwick.ac.uk/",
+      "startDate": "2020",
+      "endDate": "2021",
+      "summary": "Refactored density-functional perturbation theory in FHI-aims for the ARCHER2 eCSE01-16 project."
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Warwick",
+      "area": "Chemistry",
+      "studyType": "PhD",
+      "startDate": "2018",
+      "endDate": "2024",
+      "url": "https://warwick.ac.uk/"
+    },
+    {
+      "institution": "University of York",
+      "area": "Chemistry",
+      "studyType": "MChem",
+      "startDate": "2014",
+      "endDate": "2018",
+      "url": "https://www.york.ac.uk/"
+    }
+  ],
+  "awards": [
+    {
+      "title": "PSI-k Collaborating Early-Career Investigators Finalist",
+      "date": "2025",
+      "awarder": "PSI-k",
+      "summary": "Finalist in the CECI competition; awarded €500."
+    },
+    {
+      "title": "EPSRC PhD Studentship",
+      "date": "2018–2024",
+      "awarder": "UKRI EPSRC"
+    }
+  ]
+}

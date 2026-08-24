@@ -3,28 +3,23 @@ layout: about
 title: About
 permalink: /
 description: Connor L. Box is a theoretical and computational chemist at the University of Cambridge developing first-principles methods for nonadiabatic dynamics, electron-phonon coupling, and nuclear quantum effects.
-subtitle: <a href='#'>Theoretical and Computational Chemist</a>, University of Cambridge.
+subtitle: Theoretical and Computational Chemist · University of Cambridge
 
 profile:
   align: right
   image: me.png
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
     <p>Yusuf Hamied Department of Chemistry</p>
     <p>University of Cambridge, Cambridge, UK.</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: false # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: false
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: true
+  scrollable: false
+  limit: 5
 ---
 
 <div class="home-hero">
