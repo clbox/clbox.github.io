@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore how Gaussian broadening, negative-frequency partners and peak normalization affect electronic friction near zero frequency.">
+<title>Friction broadening · Connor L. Box</title>
+<style>
+:root{color-scheme:light;--ink:#233239;--muted:#52646c;--line:#dae1df;--paper:#f5f7f4;--blue:#176399;--orange:#b34d14;--green:#187356;--violet:#7552a4}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:28px 24px 50px}a{color:var(--blue)}header{max-width:810px;margin-bottom:25px}h1{font-size:clamp(28px,5vw,42px);letter-spacing:-1.4px;line-height:1.12;margin:20px 0 12px}h2{font-size:19px;margin:0 0 8px}p{margin:8px 0 14px}.eyebrow{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--green);font-weight:750}.intro{font-size:18px;color:var(--muted)}.layout{display:grid;grid-template-columns:260px 1fr;gap:20px}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}.controls{align-self:start}.control{margin:18px 0}.control label{display:block;font-size:14px;font-weight:650}.control output{float:right;font-weight:450;color:var(--muted);font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--green);margin:12px 0 0}select,button{font:inherit;border:1px solid #b6c4bf;border-radius:7px;background:white;color:var(--ink);padding:8px 10px}select{width:100%;margin-top:8px}button{cursor:pointer}button:hover{background:#eef4ef}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.check{display:flex;gap:9px;margin:13px 0;font-size:14px}.check input{accent-color:var(--green);flex-shrink:0}.help{font-size:13px;color:var(--muted)}.muted{color:var(--muted)}hr{border:0;border-top:1px solid var(--line);margin:20px 0}.charts{min-width:0;display:grid;gap:18px}svg{width:100%;height:auto;display:block}svg text{font-family:system-ui,sans-serif;fill:var(--muted);font-size:12px}.legend{display:flex;gap:8px 20px;flex-wrap:wrap;font-size:12px;margin:12px 0}.legend span::before{content:'';display:inline-block;width:22px;border-top:3px solid currentColor;margin-right:7px;vertical-align:middle}.legend .target::before{border-top-style:dashed}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.metric{border-left:3px solid var(--line);padding-left:10px}.metric strong{display:block;font-size:25px;font-variant-numeric:tabular-nums;line-height:1.3}.metric small{font-size:12px}.note{padding:12px 14px;background:#edf4ef;border-radius:8px;font-size:14px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}details{margin-top:24px}summary{cursor:pointer;font-weight:650}.equation{font-family:ui-monospace,monospace;background:var(--paper);padding:12px;overflow:auto;font-size:14px}.selected{font-weight:700;color:var(--green)}footer{font-size:13px;color:var(--muted);margin-top:25px}.pair-control{max-width:360px}noscript{display:block;padding:20px;background:#fff1df}@media(max-width:760px){main{padding:20px 14px}.layout{grid-template-columns:1fr}.controls{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.controls h2,.controls hr,.controls .options,.controls .actions{grid-column:1/-1}.metrics{gap:4px}.metric strong{font-size:22px}.panel{padding:15px}}@media(max-width:400px){.controls{display:block}}
+</style>
+</head>
+<body><main>
+<header><a href="/teaching/">← Teaching</a><h1>When broadening meets a boundary</h1><p class="intro">A flat friction spectrum should stay flat. Explore what happens when negative-frequency partners are left out of Gaussian broadening.</p></header>
+<noscript>This teaching tool needs JavaScript. With a flat spectrum of height 1, positive-only broadening gives 0.5 at zero; peak normalization gives ln(2) ≈ 0.693; including negative partners gives 1.</noscript>
+<div class="layout">
+<aside class="panel controls" aria-label="Spectrum controls"><h2>Build a spectrum</h2>
+<div class="control"><label for="shape">Shape</label><select id="shape"><option value="flat">Flat — boundary test</option><option value="peak">Peak on a flat background</option><option value="gap">Gapped spectrum</option><option value="rising">Rising spectrum</option></select></div>
+<div class="control"><label for="level">Background <output id="levelOut"></output></label><input id="level" type="range" min="0" max="2" step="0.05" value="1"></div>
+<div class="control" id="heightControl" hidden><label for="height">Peak height <output id="heightOut"></output></label><input id="height" type="range" min="0.1" max="3" step="0.1" value="1.5"></div>
+<div class="control" id="featureControl" hidden><label for="feature"><span id="featureLabel">Peak position</span> <output id="featureOut"></output></label><input id="feature" type="range" min="0.05" max="0.7" step="0.01" value="0.3"></div>
+<div class="control"><label for="sigma">Gaussian width σ <output id="sigmaOut"></output></label><input id="sigma" type="range" min="0.02" max="0.3" step="0.01" value="0.12"></div>
+<hr><div class="options"><h2>Choose a treatment</h2>
+<label class="check"><input id="negative" type="checkbox">Include negative-frequency partners</label>
+<label class="check"><input id="normalize" type="checkbox">Normalize each peak above zero</label>
+<p class="help" id="normalHelp">Peak normalization corresponds to friction_delta_normalisation. It is an alternative to including partners, not an extra correction.</p>
+<label class="check"><input id="compare" type="checkbox" checked>Compare all three treatments</label>
+</div><div class="actions"><button id="reset" type="button">Reset flat example</button></div></aside>
+<div class="charts">
+<section class="panel"><div class="eyebrow">1 · The resulting spectrum</div><h2 id="chosen">Positive excitations only</h2>
+<div class="legend"><span class="target" style="color:#52646c">Unbroadened</span><span style="color:var(--orange)">Positive only</span><span style="color:var(--violet)">Peak normalized</span><span style="color:var(--green)">With partners</span></div>
+<svg id="spectrum" viewBox="0 0 700 300" role="img" aria-label="Friction spectrum versus perturbing energy"></svg>
+<div class="metrics" aria-live="polite"><div class="metric" style="border-color:var(--orange)"><small>Positive only · Λ(0)</small><strong id="positiveValue"></strong></div><div class="metric" style="border-color:var(--violet)"><small>Normalized · Λ(0)</small><strong id="normalizedValue"></strong></div><div class="metric" style="border-color:var(--green)"><small>With partners · Λ(0)</small><strong id="fullValue"></strong></div></div>
+<p class="note" id="takeaway"></p><div class="actions"><button type="button" id="download">Download spectrum CSV</button></div>
+</section>
+<section class="panel"><div class="eyebrow">2 · Where the weight goes</div><h2>One excitation and its partner</h2><p class="help">Move the excitation toward zero. Shading shows its contribution at positive observation energies; the dashed line marks the boundary.</p>
+<div class="control pair-control"><label for="delta">Excitation energy Δ <output id="deltaOut"></output></label><input id="delta" type="range" min="0.01" max="0.6" step="0.01" value="0.12"></div>
+<div class="legend"><span style="color:var(--orange)">Positive peak</span><span style="color:var(--violet)">Normalized positive peak</span><span style="color:var(--green)">Negative partner</span></div>
+<svg id="kernel" viewBox="0 0 700 260" role="img" aria-label="Gaussian peak and its negative-frequency partner"></svg><p class="note" id="weight" aria-live="polite"></p>
+</section></div></div>
+<details class="panel"><summary>The model and the minimal equations</summary>
+<p>Let S(Δ) be the positive-frequency part of a real, even friction response. Each electronic transition at +Δ has an equal-weight partner at −Δ. G is a unit-area Gaussian of standard deviation σ; Φ is the standard normal cumulative distribution.</p>
+<div class="equation">Positive only: Λ(E) = ∫₀∞ S(Δ) G(E − Δ) dΔ<br>Peak normalized: Λ(E) = ∫₀∞ S(Δ) G(E − Δ) / Φ(Δ/σ) dΔ<br>With partners: Λ(E) = ∫₀∞ S(Δ) [G(E − Δ) + G(E + Δ)] dΔ</div>
+<p>For S(Δ) = Λ₀, the zero-frequency results are Λ₀/2, Λ₀ ln(2), and Λ₀. Peak normalization restores the positive-energy area of each peak, but does not preserve a constant spectrum. The mirrored treatment preserves the flat spectrum at every energy.</p>
+<p>For a non-flat spectrum, even full Gaussian convolution can change its shape. The dashed curve is the unbroadened input, not a curve that every finite-width result must match. All energies here are in eV and friction is in arbitrary units.</p>
+<p>The input extends beyond the plotted window: flat remains flat, the peak returns to its background, the gap rises smoothly to its background, and the rising preset is S(Δ) = background × (1 + Δ / 1 eV). Numerical integration extends at least eight Gaussian widths past the visible positive-energy range.</p>
+<p>This model concerns the real single-delta friction response with the occupation difference divided by the electronic energy difference, at q = 0. It does not describe diagonal/degenerate-state terms or prescribe how to broaden phonon peaks in α²F. A finite list of electronic transitions also requires separate sampling convergence.</p>
+<p>Reference: <a href="https://doi.org/10.1088/2516-1075/acf3c4">Box, Stark &amp; Maurer (2023), Eq. (14)</a>. The boundary examples are direct Gaussian-convolution calculations.</p>
+</details><footer>Connor L. Box · Electronic friction teaching tools · Runs entirely in your browser.</footer>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const colors={positive:'#b34d14',normalized:'#7552a4',full:'#187356',target:'#52646c'};
+const phi=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
+function erf(x){const sign=x<0?-1:1,t=1/(1+0.3275911*Math.abs(x));return sign*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x));}
+const Phi=x=>0.5*(1+erf(x/Math.SQRT2));
+function settings(){return Object.fromEntries(['shape','level','height','feature','sigma','delta'].map(id=>[id,id==='shape'?$(id).value:+$(id).value]));}
+function source(x,p){switch(p.shape){case 'peak':return p.level+p.height*Math.exp(-0.5*((x-p.feature)/0.07)**2);case 'gap':return p.level*(1+Math.tanh((x-p.feature)/0.025))/2;case 'rising':return p.level*(1+x);default:return p.level;}}
+function calculate(p){const end=1+8*p.sigma,n=Math.ceil(end/(p.sigma/45)),dx=end/n;
+ const weights=Array.from({length:n},(_,i)=>{const d=(i+0.5)*dx;return {d,a:source(d,p)*dx,n:Phi(d/p.sigma)};});
+ return Array.from({length:251},(_,i)=>{const x=i/250;let positive=0,normalized=0,negative=0;for(const w of weights){const g=phi((x-w.d)/p.sigma)/p.sigma;positive+=w.a*g;normalized+=w.a*g/w.n;negative+=w.a*phi((x+w.d)/p.sigma)/p.sigma;}return {x,target:source(x,p),positive,normalized,full:positive+negative};});}
+function chart(id,rows,series,xmin,xmax,height,ylabel,shade=false){const W=Math.max(320,Math.min(700,$(id).clientWidth)),H=height,L=54,R=18,T=18,B=46;$(id).setAttribute('viewBox',`0 0 ${W} ${H}`);const ymax=Math.max(0.1,...rows.flatMap(r=>series.map(s=>r[s.key])))*1.12;const sx=x=>L+(x-xmin)/(xmax-xmin)*(W-L-R),sy=y=>H-B-y/ymax*(H-T-B);let out='<title>'+ylabel+'</title><desc>See the adjacent numerical values and controls for a text summary.</desc>';
+ if(xmin<0)out+=`<rect x="${L}" y="${T}" width="${sx(0)-L}" height="${H-B-T}" fill="#f0f2f2"/>`;
+ for(let i=0;i<=4;i++){const y=ymax*i/4;out+=`<line x1="${L}" x2="${W-R}" y1="${sy(y)}" y2="${sy(y)}" stroke="#e4e8e6"/><text x="${L-9}" y="${sy(y)+4}" text-anchor="end">${y.toFixed(1)}</text>`;}
+ for(let i=0;i<=4;i++){const x=xmin+(xmax-xmin)*i/4;out+=`<text x="${sx(x)}" y="${H-25}" text-anchor="middle">${x.toFixed(2)}</text>`;}
+ out+=`<line x1="${sx(0)}" x2="${sx(0)}" y1="${T}" y2="${H-B}" stroke="#82908c" stroke-dasharray="4 4"/><text x="${(W+L-R)/2}" y="${H-4}" text-anchor="middle">Observation energy E (eV)</text><text transform="translate(16 ${(H-B+T)/2}) rotate(-90)" text-anchor="middle">${ylabel}</text>`;
+ for(const s of series){const path=rows.map((r,i)=>`${i?'L':'M'}${sx(r.x).toFixed(2)},${sy(r[s.key]).toFixed(2)}`).join(' ');if(shade&&s.key!=='target'){const pos=rows.filter(r=>r.x>=0);out+=`<path d="M${sx(pos[0].x)},${sy(0)} ${pos.map(r=>`L${sx(r.x)},${sy(r[s.key])}`).join(' ')} L${sx(pos.at(-1).x)},${sy(0)} Z" fill="${s.color}" opacity="0.10"/>`;}
+ out+=`<path d="${path}" fill="none" stroke="${s.color}" stroke-width="${s.width||2}" ${s.dash?'stroke-dasharray="'+s.dash+'"':''}/>`;}
+ $(id).innerHTML=out;}
+let data=[];
+function render(){const p=settings(),neg=$('negative').checked,norm=$('normalize').checked,compare=$('compare').checked,selected=neg?'full':norm?'normalized':'positive';
+ $('heightControl').hidden=p.shape!=='peak';$('featureControl').hidden=!['peak','gap'].includes(p.shape);$('featureLabel').textContent=p.shape==='gap'?'Gap edge':'Peak position';
+ for(const id of ['level','height','feature','sigma','delta'])$(id+'Out').textContent=p[id].toFixed(2)+(['feature','sigma','delta'].includes(id)?' eV':'');
+ $('chosen').textContent={positive:'Positive excitations only',normalized:'Positive peaks, normalized above zero',full:'Positive and negative partners'}[selected];
+ data=calculate(p);const series=[{key:'target',color:colors.target,dash:'6 5'},...['positive','normalized','full'].filter(k=>compare||k===selected).map(key=>({key,color:colors[key],width:key===selected?3.5:2,dash:key==='normalized'?'3 3':''}))];chart('spectrum',data,series,0,1,300,'Friction Λ (arb. units)');
+ for(const k of ['positive','normalized','full'])$(k==='positive'?'positiveValue':k==='normalized'?'normalizedValue':'fullValue').textContent=data[0][k].toFixed(3);
+ $('takeaway').textContent=p.shape==='flat'?(p.level===0?'A zero spectrum stays zero. Increase the background to test the boundary.':'Flat-spectrum test: positive only gives 50%, peak normalization 69.3%, and including partners 100% of the input at zero. Changing σ changes the width of the downturn, not these ratios.'):'For a structured spectrum, broadening itself changes the shape. Compare the three treatments to isolate the missing negative-frequency tails; the full result need not match the unbroadened curve.';
+ const mass=Phi(p.delta/p.sigma),range=Math.max(0.8,p.delta+4*p.sigma),rows=Array.from({length:401},(_,i)=>{const x=(i/400*2-1)*range,g=phi((x-p.delta)/p.sigma)/p.sigma;return {x,positive:g,normalized:g/mass,full:phi((x+p.delta)/p.sigma)/p.sigma};});
+ const ks=[{key:'positive',color:colors.positive},...(compare||norm?[{key:'normalized',color:colors.normalized,dash:'3 3'}]:[]),...(compare||neg?[{key:'full',color:colors.full}]:[])];chart('kernel',rows,ks,-range,range,260,'Kernel weight (1/eV)',true);
+ $('weight').textContent=`Positive-energy area: the original peak contributes ${(100*mass).toFixed(1)}%; its negative partner supplies ${(100*(1-mass)).toFixed(1)}%. Together: 100%. Normalizing the positive peak alone also gives 100% area, but a different shape.`;
+}
+for(const id of ['shape','level','height','feature','sigma','delta','compare'])$(id).addEventListener('input',render);
+$('negative').addEventListener('change',()=>{if($('negative').checked)$('normalize').checked=false;render();});
+$('normalize').addEventListener('change',()=>{if($('normalize').checked)$('negative').checked=false;render();});
+$('reset').addEventListener('click',()=>{for(const [k,v] of Object.entries({shape:'flat',level:1,height:1.5,feature:0.3,sigma:0.12,delta:0.12}))$(k).value=v;$('negative').checked=false;$('normalize').checked=false;$('compare').checked=true;render();});
+$('download').addEventListener('click',()=>{const p=settings(),csv='# '+JSON.stringify(p)+'\nenergy_eV,input,positive_only,peak_normalized,with_negative_partners\n'+data.map(r=>[r.x,r.target,r.positive,r.normalized,r.full].join(',')).join('\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'})),a=document.createElement('a');a.href=url;a.download='friction-broadening.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+window.addEventListener('resize',render);
+render();
+</script></body></html>
