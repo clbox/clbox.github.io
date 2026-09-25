@@ -19,53 +19,59 @@ h3{font-size:17px;margin:0 0 10px}.lesson{margin:28px 0;scroll-margin-top:18px}.
 <section id="dos-model" class="panel lesson">
 <div class="eyebrow">1 · Density of states</div><h2>Which electronic states are available?</h2>
 <p>The <strong>density of states (DOS)</strong> counts electronic states at each energy. The Fermi level is our zero of energy. At zero temperature, states below it are occupied and states above it are empty. At higher temperature, the Fermi–Dirac function f gives the probability that each state is occupied.</p>
-<p>Start with a flat band, then try adding a peak or opening a gap. Changes here update the JDOS and friction below, and the broadening example whenever its input is set to your DOS model.</p>
+<p>Start with a flat band, then try a peak, a gap, or discrete electronic levels. Changes here update the JDOS and friction below, and the broadening example whenever its input is set to your DOS model.</p>
 <div class="dos-controls">
-<div class="control"><label for="dosShape">Electronic DOS</label><select id="dosShape"><option value="flat">Flat band</option><option value="peak">Flat band with a peak</option><option value="gap">Flat band with a gap</option></select></div>
-<div class="control"><label for="dosLevel">DOS height <output id="dosLevelOut"></output></label><input id="dosLevel" type="range" min="0.2" max="2" step="0.1" value="1"></div>
+<div class="control"><label for="dosShape">Electronic DOS</label><select id="dosShape"><option value="flat">Flat band</option><option value="peak">Flat band with a peak</option><option value="gap">Flat band with a gap</option><option value="discrete">Discrete electronic levels</option></select></div>
+<div class="control"><label for="dosLevel">DOS scale <output id="dosLevelOut"></output></label><input id="dosLevel" type="range" min="0.2" max="2" step="0.1" value="1"></div>
 <div class="control"><label for="dosTemp">Electronic temperature <output id="dosTempOut"></output></label><input id="dosTemp" type="range" min="0" max="3000" step="50" value="0"></div>
 <div class="control"><label for="dosBand">Band half-width W <output id="dosBandOut"></output></label><input id="dosBand" type="range" min="0.3" max="3" step="0.1" value="2"></div>
 
 <div class="control" id="dosCenterControl" hidden><label for="dosCenter">Peak center <output id="dosCenterOut"></output></label><input id="dosCenter" type="range" min="-0.8" max="0.8" step="0.02" value="0"></div>
 <div class="control" id="dosWidthControl" hidden><label for="dosWidth">Peak width <output id="dosWidthOut"></output></label><input id="dosWidth" type="range" min="0.05" max="0.4" step="0.01" value="0.15"></div>
+<div class="control" id="dosCountControl" hidden><label for="dosCount">Number of levels <output id="dosCountOut"></output></label><input id="dosCount" type="range" min="4" max="80" step="2" value="24"></div><div class="control" id="dosIrregularControl" hidden><label for="dosIrregular">Uneven level spacing <output id="dosIrregularOut"></output></label><input id="dosIrregular" type="range" min="0" max="0.8" step="0.1" value="0.4"></div>
 <div class="control" id="dosGapControl" hidden><label for="dosGap">Full gap width <output id="dosGapOut"></output></label><input id="dosGap" type="range" min="0.05" max="0.5" step="0.01" value="0.3"></div></div>
 <div class="legend"><span class="target" style="color:var(--muted)">Total DOS ρ</span><span style="color:var(--blue)">Occupied ρf</span><span style="color:var(--orange)">Empty ρ(1−f)</span></div><svg id="dosPlot" viewBox="0 0 700 260" role="img" aria-label="Electronic density of states relative to the Fermi level"></svg>
 <p class="help">The shaded region is below the chemical potential μ = 0. At finite temperature it is no longer completely occupied. The DOS is zero outside the band −W to +W.</p>
-<h3>How temperature changes occupation</h3><svg id="occupationPlot" viewBox="0 0 700 220" role="img" aria-label="Fermi Dirac occupation probability near the chemical potential"></svg><p class="note" id="temperatureNote" aria-live="polite"></p>
+<p id="discreteDosNote" class="note" hidden></p><h3>How temperature changes occupation</h3><svg id="occupationPlot" viewBox="0 0 700 220" role="img" aria-label="Fermi Dirac occupation probability near the chemical potential"></svg><p class="note" id="temperatureNote" aria-live="polite"></p>
 <details><summary>The Fermi–Dirac function and the chemical potential</summary>
 <div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>f</mi><mo>(</mo><mi>ε</mi><mo>)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mi mathvariant="normal">exp</mi><mo>[</mo><mfrac><mrow><mi>ε</mi><mo>−</mo><mi>μ</mi></mrow><mrow><msub><mi>k</mi><mi>B</mi></msub><mi>T</mi></mrow></mfrac><mo>]</mo></mrow></mfrac></mrow></math></div>
 <p>T is electronic temperature in kelvin and k<sub>B</sub>T is the thermal energy scale. We keep the chemical potential μ fixed at zero as temperature changes. For an asymmetric DOS, this does not preserve the total electron number; a fixed-electron-number calculation would also solve for μ(T). The zero-temperature setting uses an exact occupation step.</p>
 </details>
 <div class="actions"><button id="resetDos" type="button">Reset to flat DOS</button><a href="#jdos-model">Next: count the transitions ↓</a></div>
-<details><summary>What the DOS controls mean</summary><p>The peaked DOS adds a Gaussian feature twice the background height. Its width describes a feature of the electronic states, not numerical smearing. The gapped DOS removes states within half the chosen gap on each side of zero. W is the band half-width, so the total band width is 2W.</p></details>
+<details><summary>What the DOS controls mean</summary><p>The peaked DOS adds a Gaussian feature twice the background height. Its width describes a feature of the electronic states, not numerical smearing. The gapped DOS removes states within half the chosen gap on each side of zero. W is the band half-width, so the total band width is 2W. Discrete levels sample this interval in symmetric pairs around zero. Increasing the number of levels makes the sampling denser while preserving the total DOS weight 2Wρ₀; each level has weight w = 2Wρ₀/N. This lets you compare with the flat continuum rather than increasing the number of electrons when refining the sampling. Uneven spacing moves the levels reproducibly; it does not broaden them.</p></details>
 </section>
 <section id="jdos-model" class="panel lesson">
 <div class="eyebrow">2 · Electron–hole joint density of states</div><h2>How many excitations are possible?</h2>
 <p>An upward transition needs an occupied lower state and an empty higher state. At finite temperature the reverse can also occur: an electron in a higher state can move into a hole below it. The <strong>net excitation weight</strong> is upward minus downward. This is the quantity used for friction; it is not a bare count of state pairs.</p>
 <div class="legend"><span style="color:var(--blue)">Upward J↑</span><span style="color:var(--violet)">Downward J↓</span><span style="color:var(--orange)">Net Jnet = J↑ − J↓</span></div><svg id="jdosPlot" viewBox="0 0 700 260" role="img" aria-label="Upward and downward transition weights and their net difference"></svg>
-<p>At T = 0, downward transitions vanish and the upward window is −E to 0. At finite T, occupations are gradual, and both directions contribute. Their occupation factors subtract to f(ε) − f(ε + E).</p>
+<div class="continuum-only"><p>At T = 0, downward transitions vanish and the upward window is −E to 0. At finite T, occupations are gradual, and both directions contribute. Their occupation factors subtract to f(ε) − f(ε + E).</p>
 <div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mi>J</mi><mtext>net</mtext></msub><mo>(</mo><mi>E</mi><mo>)</mo><mo>=</mo><mo>∫</mo><mi>ρ</mi><mo>(</mo><mi>ε</mi><mo>)</mo><mi>ρ</mi><mo>(</mo><mi>ε</mi><mo>+</mo><mi>E</mi><mo>)</mo><mo>[</mo><mi>f</mi><mo>(</mo><mi>ε</mi><mo>)</mo><mo>−</mo><mi>f</mi><mo>(</mo><mi>ε</mi><mo>+</mo><mi>E</mi><mo>)</mo><mo>]</mo><mi mathvariant="normal">d</mi><mi>ε</mi></mrow></math></div>
 <p class="help">ρ (rho) is the DOS; ε is the starting electron energy. We integrate over electronic energies in the band, weighting each state pair by the occupation difference. The horizontal axis here is an <em>energy difference</em>, unlike the electron-energy axis in section 1.</p>
-<p class="note" id="jdosTemperatureNote" aria-live="polite"></p>
+</div><p class="note" id="jdosTemperatureNote" aria-live="polite"></p>
 <details><summary>Upward and downward are probabilities; friction uses their difference</summary>
 <p>The upward weight uses f(ε)[1−f(ε+E)]. The downward weight uses f(ε+E)[1−f(ε)]. Both are multiplied by the same DOS product and integrated over ε. At equilibrium and T &gt; 0, J↓(E) = exp[−E/(k<sub>B</sub>T)] J↑(E).</p>
-<p>At E = 0 and finite temperature, these two weights can each be nonzero but are equal: their net is zero. These are continuous spectral densities, not a count of discrete zero-energy transitions. The net weight’s slope, rather than the individual upward weight divided by E, determines zero-frequency friction.</p>
+<div class="continuum-only"><p>At E = 0 and finite temperature, these two weights can each be nonzero but are equal: their net is zero. These are continuous spectral densities, not a count of discrete zero-energy transitions. The net weight’s slope, rather than the individual upward weight divided by E, determines zero-frequency friction.</p></div>
 </details>
-<details><summary>Why a DOS is not enough for a real material</summary><p>This is a continuum model with no momentum selection rule. In a crystal, the two states must also satisfy crystal-momentum conservation, so multiplying two DOS curves is generally not the actual momentum-resolved JDOS. This example illustrates the energy and occupation counting, not a particular material’s band structure.</p></details>
+<details><summary>Why a DOS is not enough for a real material</summary><p>Both models omit momentum selection rules. The discrete model uses distinct electronic levels, like the eigenvalues sampled in a finite DFT calculation, but it is not a DFT band structure. In a crystal, the two states must also satisfy crystal-momentum conservation, so multiplying two DOS curves is generally not the actual momentum-resolved JDOS. This example illustrates the energy and occupation counting, not a particular material’s band structure.</p></details>
 </section>
 <section id="friction-model" class="panel lesson">
-<div class="eyebrow">3 · The friction spectrum</div><h2>A vanishing JDOS can still give finite friction</h2>
+<div class="eyebrow">3 · The friction spectrum</div><h2 id="frictionHeading">A vanishing JDOS can still give finite friction</h2>
 <p>In the single-delta friction expression considered here, the <strong>net</strong> excitation weight is divided by its energy E. For this model we use a constant coupling strength g², which describes how strongly atomic motion interacts with the electronic transitions.</p>
 <div class="control"><label for="dosCoupling">Coupling strength g² <output id="dosCouplingOut"></output></label><input id="dosCoupling" type="range" min="0" max="2" step="0.1" value="1"></div><div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>Λ</mi><mo>(</mo><mi>E</mi><mo>)</mo><mo>=</mo><msup><mi>g</mi><mn>2</mn></msup><mfrac><mrow><msub><mi>J</mi><mtext>net</mtext></msub><mo>(</mo><mi>E</mi><mo>)</mo></mrow><mi>E</mi></mfrac></mrow></math></div>
 <svg id="dosFrictionPlot" viewBox="0 0 700 260" role="img" aria-label="Model friction calculated from the JDOS"></svg>
+<div id="discreteFrictionExplanation" class="note" hidden><strong>Discrete levels give spectral lines, not a smooth curve</strong>
+<p>For each distinct pair i &lt; j, the transition energy is Δ = εⱼ − εᵢ. Its net line weight is wᵢwⱼ(fᵢ − fⱼ). The friction line weight is</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mi>A</mi><mi>ij</mi></msub><mo>=</mo><msup><mi>g</mi><mn>2</mn></msup><msub><mi>w</mi><mi>i</mi></msub><msub><mi>w</mi><mi>j</mi></msub><mfrac><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>−</mo><msub><mi>f</mi><mi>j</mi></msub></mrow><mrow><msub><mi>ε</mi><mi>j</mi></msub><mo>−</mo><msub><mi>ε</mi><mi>i</mi></msub></mrow></mfrac></mrow></math></div>
+<p>The sticks show the <em>integrated weights</em> of delta peaks, not finite peak heights. There is no line at zero: diagonal pairs i = j are excluded and all levels are distinct. We do not apply the continuum zero-frequency limit to this finite set of levels.</p>
+<p>Section 4 sums Gaussians centred at each Δ directly. Including negative partners adds an equal-weight Gaussian at −Δ. The net transition weight changes sign when the pair is reversed, but so does the energy denominator. This partner is part of the response, not an additional occupied upper state.</p></div>
 <p class="note" id="dosLesson" aria-live="polite"></p>
-<div class="note" id="zero-limit-explanation"><strong>How this tool calculates the point at zero</strong>
+<div class="continuum-only"><div class="note" id="zero-limit-explanation"><strong>How this tool calculates the point at zero</strong>
 <p>For E &gt; 0, we calculate the net excitation weight and divide by E. At E = 0, we use the analytically derived continuum limit below, evaluating its integral numerically when T &gt; 0. We do not evaluate 0/0 or extrapolate from plotted points.</p>
 <div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>Λ</mi><mo>(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo>)</mo><mo>=</mo><msup><mi>g</mi><mn>2</mn></msup><mo>∫</mo><msup><mi>ρ</mi><mn>2</mn></msup><mo>(</mo><mi>ε</mi><mo>)</mo><mo>[</mo><mo>−</mo><mfrac><mrow><mi mathvariant="normal">d</mi><mi>f</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>ε</mi></mrow></mfrac><mo>]</mo><mi mathvariant="normal">d</mi><mi>ε</mi></mrow></math></div>
 <p>The occupation-difference quotient approaches −df/dε. At finite T this averages ρ² over a thermal window around μ. At T = 0 it selects only the Fermi level, recovering Λ(0) = g²ρ(0)² for a DOS continuous there. Constant coupling and no momentum selection are still assumed.</p>
 <p><strong>The plotted zero point follows from these model assumptions.</strong> It is not a direct evaluation of an exact zero-energy transition, or evidence that a finite discrete FHI-aims interband sum has the same limit.</p></div>
 <p>For a wide flat DOS, the net excitation weight is approximately proportional to E, so dividing by E gives nearly flat friction. For a peak or gap, temperature can change the result by sampling different electronic states. Common physical prefactors are omitted, so friction is in arbitrary units.</p>
-<div class="actions"><button id="useDos" type="button">Continue with this friction ↓</button><button id="downloadDos" type="button">Download DOS, JDOS and friction</button></div>
+</div><div class="actions"><button id="useDos" type="button">Continue with this friction ↓</button><button id="downloadDos" type="button">Download DOS, JDOS and friction</button></div>
 <p class="help" id="dosLinkNote">Temperature changes occupations; it is not Gaussian broadening. No artificial smoothing has been applied yet. The next section uses this friction by default; the button restores that link if you selected a separate test spectrum.</p>
 <details><summary>Limits, Γ-point calculations, and negative frequencies</summary>
 <p>A DOS alone cannot determine physical friction. We assume constant coupling between all allowed pairs, equilibrium Fermi occupations at fixed chemical potential, and no momentum restriction. Real matrix elements and band selection rules can change the low-energy limit.</p>
@@ -89,10 +95,10 @@ h3{font-size:17px;margin:0 0 10px}.lesson{margin:28px 0;scroll-margin-top:18px}.
 <p class="help" id="normalHelp">These are two different ways to handle the edge at zero. Selecting one switches the other off.</p>
 <label class="check"><input id="compare" type="checkbox" checked>Compare all three treatments</label>
 </div><div class="actions"><button id="reset" type="button">Use ideal flat test</button></div></aside><div class="charts"><section class="panel"><h3 id="chosen">Positive excitations only</h3>
-<p class="help">The horizontal axis is the energy at which we read the friction. The vertical axis is its strength. The thicker colored curve is your selected method.</p><div class="legend"><span class="target" style="color:#52646c">Before smoothing</span><span style="color:var(--orange)">Positive only</span><span style="color:var(--violet)">Rescaled peaks</span><span style="color:var(--green)">Both partners</span></div>
+<p class="help">The horizontal axis is the energy at which we read the friction. The vertical axis is its strength. The thicker colored curve is your selected method.</p><div class="legend"><span id="inputCurveLegend" class="target" style="color:#52646c">Before smoothing</span><span style="color:var(--orange)">Positive only</span><span style="color:var(--violet)">Rescaled peaks</span><span style="color:var(--green)">Both partners</span></div>
 <svg id="spectrum" viewBox="0 0 700 300" role="img" aria-label="Friction spectrum versus perturbing energy"></svg>
 <div class="metrics" aria-live="polite"><div class="metric" style="border-color:var(--orange)"><small>Positive only · at zero</small><strong id="positiveValue"></strong></div><div class="metric" style="border-color:var(--violet)"><small>Rescaled · at zero</small><strong id="normalizedValue"></strong></div><div class="metric" style="border-color:var(--green)"><small>Both partners · at zero</small><strong id="fullValue"></strong></div></div>
-<p class="help"><strong>How these zero-energy values are calculated:</strong> unlike the analytic zero point in section 3, these values come from numerically integrating the input friction spectrum against each Gaussian kernel at E = 0, using the selected finite width σ.</p><p class="note" id="takeaway"></p><div class="actions"><button type="button" id="download">Download spectrum CSV</button></div>
+<p class="help"><strong>How these zero-energy values are calculated:</strong> we evaluate the Gaussian-broadened spectrum at E = 0 using the selected finite width σ. For a continuum input this is a numerical integral; for discrete levels it is a direct sum of transition weights times Gaussian tails. No continuum zero-frequency limit is inserted here.</p><p class="note" id="takeaway"></p><div class="actions"><button type="button" id="download">Download spectrum CSV</button></div>
 
 <details><summary>The ideal flat-spectrum test</summary>
 <p>Choose “Flat — boundary test” to isolate the boundary effect. This ideal spectrum stays flat beyond the visible range; it is distinct from a finite-band DOS model. For a starting friction of 1, the values at zero are:</p>
@@ -115,7 +121,7 @@ h3{font-size:17px;margin:0 0 10px}.lesson{margin:28px 0;scroll-margin-top:18px}.
 <p><code>friction_delta_normalisation .true.</code> rescales peaks in the scalar tensor calculation. <code>friction_negative_energies .true.</code> adds the negative partners; use it with delta normalization off. The current tensor-grid routines do not apply the normalization flag. This tool compares the prescriptions separately.</p>
 <p>We Gaussian-smooth the friction spectrum itself. Broadening the dissipative susceptibility first and then dividing by frequency is a different finite-width approximation. The usual double-delta Fermi-surface expression is also a different calculation and has no positive-excitation boundary to repair this way.</p>
 <p>The independent peaked friction preset uses width 0.07 eV; the gap preset uses a smooth step of scale 0.025 eV; the rising preset is background × (1 + Δ / 1 eV). These presets continue beyond the plotted window. The DOS-derived input instead retains its finite band edges.</p>
-<p>Broadening uses midpoint integration with spacing no larger than σ/45, extending eight Gaussian widths past 1 eV. The DOS-derived friction is interpolated on a 0.002 eV grid. Real electronic calculations require their own state and k-point convergence tests.</p>
+<p>For discrete levels, broadening is an explicit sum over all distinct state pairs, with no electronic-energy grid interpolation. For continuum inputs, broadening uses midpoint integration with spacing no larger than σ/45, extending eight Gaussian widths past 1 eV. The DOS-derived friction is interpolated on a 0.002 eV grid. Real electronic calculations require their own state and k-point convergence tests.</p>
 </details></div></div></section>
 <footer>Connor L. Box · Electronic friction teaching tools · Runs entirely in your browser.</footer>
 </main>
@@ -128,25 +134,27 @@ function erf(x){const sign=x<0?-1:1,t=1/(1+0.3275911*Math.abs(x));return sign*(1
 const Phi=x=>0.5*(1+erf(x/Math.SQRT2));
 function settings(){return Object.fromEntries(['shape','level','height','feature','sigma','delta'].map(id=>[id,id==='shape'?$(id).value:+$(id).value]));}
 function source(x,p){switch(p.shape){case 'dos':return dosFrictionAt(x);case 'peak':return p.level+p.height*Math.exp(-0.5*((x-p.feature)/0.07)**2);case 'gap':return p.level*(1+Math.tanh((x-p.feature)/0.025))/2;case 'rising':return p.level*(1+x);default:return p.level;}}
-function calculate(p){const end=1+8*p.sigma,n=Math.ceil(end/(p.sigma/45)),dx=end/n;
+function calculate(p){if(p.shape==='dos'&&isDiscrete())return calculateDiscrete(p);const end=1+8*p.sigma,n=Math.ceil(end/(p.sigma/45)),dx=end/n;
  const weights=Array.from({length:n},(_,i)=>{const d=(i+0.5)*dx;return {d,a:source(d,p)*dx,n:Phi(d/p.sigma)};});
  return Array.from({length:251},(_,i)=>{const x=i/250;let positive=0,normalized=0,negative=0;for(const w of weights){const g=phi((x-w.d)/p.sigma)/p.sigma;positive+=w.a*g;normalized+=w.a*g/w.n;negative+=w.a*phi((x+w.d)/p.sigma)/p.sigma;}return {x,target:source(x,p),positive,normalized,full:positive+negative};});}
-function chart(id,rows,series,xmin,xmax,height,ylabel,shade=false,xlabel='Observation energy E (eV)'){const W=Math.max(320,Math.min(700,$(id).clientWidth)),H=height,L=54,R=18,T=18,B=46;$(id).setAttribute('viewBox',`0 0 ${W} ${H}`);const ymax=Math.max(0.1,...rows.flatMap(r=>series.map(s=>r[s.key])))*1.12;const sx=x=>L+(x-xmin)/(xmax-xmin)*(W-L-R),sy=y=>H-B-y/ymax*(H-T-B);let out='<title>'+ylabel+'</title><desc>See the adjacent numerical values and controls for a text summary.</desc>';
+function chart(id,rows,series,xmin,xmax,height,ylabel,shade=false,xlabel='Observation energy E (eV)'){const W=Math.max(320,Math.min(700,$(id).clientWidth)),H=height,L=78,R=18,T=18,B=46;$(id).setAttribute('viewBox',`0 0 ${W} ${H}`);const ymax=Math.max(1e-8,...rows.flatMap(r=>series.map(s=>r[s.key])))*1.12;const sx=x=>L+(x-xmin)/(xmax-xmin)*(W-L-R),sy=y=>H-B-y/ymax*(H-T-B);let out='<title>'+ylabel+'</title><desc>See the adjacent numerical values and controls for a text summary.</desc>';
  if(xmin<0)out+=`<rect x="${L}" y="${T}" width="${sx(0)-L}" height="${H-B-T}" fill="#f0f2f2"/>`;
- for(let i=0;i<=4;i++){const y=ymax*i/4;out+=`<line x1="${L}" x2="${W-R}" y1="${sy(y)}" y2="${sy(y)}" stroke="#e4e8e6"/><text x="${L-9}" y="${sy(y)+4}" text-anchor="end">${y.toFixed(1)}</text>`;}
+ for(let i=0;i<=4;i++){const y=ymax*i/4;out+=`<line x1="${L}" x2="${W-R}" y1="${sy(y)}" y2="${sy(y)}" stroke="#e4e8e6"/><text x="${L-9}" y="${sy(y)+4}" text-anchor="end">${ymax<.1?y.toExponential(1):y.toFixed(ymax<1?2:1)}</text>`;}
  for(let i=0;i<=4;i++){const x=xmin+(xmax-xmin)*i/4;out+=`<text x="${sx(x)}" y="${H-25}" text-anchor="middle">${x.toFixed(2)}</text>`;}
  out+=`<line x1="${sx(0)}" x2="${sx(0)}" y1="${T}" y2="${H-B}" stroke="#82908c" stroke-dasharray="4 4"/><text x="${(W+L-R)/2}" y="${H-4}" text-anchor="middle">${xlabel}</text><text transform="translate(16 ${(H-B+T)/2}) rotate(-90)" text-anchor="middle">${ylabel}</text>`;
- for(const s of series){const path=rows.map((r,i)=>`${i?'L':'M'}${sx(r.x).toFixed(2)},${sy(r[s.key]).toFixed(2)}`).join(' ');if(shade&&s.key!=='target'){const pos=rows.filter(r=>r.x>=0);out+=`<path d="M${sx(pos[0].x)},${sy(0)} ${pos.map(r=>`L${sx(r.x)},${sy(r[s.key])}`).join(' ')} L${sx(pos.at(-1).x)},${sy(0)} Z" fill="${s.color}" opacity="0.10"/>`;}
+ for(const s of series){if(s.sticks){out+=rows.filter(r=>r.x>=xmin&&r.x<=xmax&&r[s.key]>0).map(r=>`<path d="M${sx(r.x)+(s.offset||0)},${sy(0)} V${sy(r[s.key])}" stroke="${s.color}" stroke-width="${s.width||2}"/>`).join('');continue;}const path=rows.map((r,i)=>`${i?'L':'M'}${sx(r.x).toFixed(2)},${sy(r[s.key]).toFixed(2)}`).join(' ');if(shade&&s.key!=='target'){const pos=rows.filter(r=>r.x>=0);out+=`<path d="M${sx(pos[0].x)},${sy(0)} ${pos.map(r=>`L${sx(r.x)},${sy(r[s.key])}`).join(' ')} L${sx(pos.at(-1).x)},${sy(0)} Z" fill="${s.color}" opacity="0.10"/>`;}
  out+=`<path d="${path}" fill="none" stroke="${s.color}" stroke-width="${s.width||2}" ${s.dash?'stroke-dasharray="'+s.dash+'"':''}/>`;}
  $(id).innerHTML=out;}
 let data=[];
 function render(){const p=settings(),neg=$('negative').checked,norm=$('normalize').checked,compare=$('compare').checked,selected=neg?'full':norm?'normalized':'positive';
  $('level').disabled=p.shape==='dos';$('levelControl').hidden=p.shape==='dos';$('heightControl').hidden=p.shape!=='peak';$('featureControl').hidden=!['peak','gap'].includes(p.shape);$('featureLabel').textContent=p.shape==='gap'?'Gap edge':'Peak position';
  for(const id of ['level','height','feature','sigma','delta'])$(id+'Out').textContent=p[id].toFixed(2)+(['feature','sigma','delta'].includes(id)?' eV':'');
+ $('inputCurveLegend').hidden=p.shape==='dos'&&isDiscrete();
  $('chosen').textContent={positive:'Positive excitations only',normalized:'Positive peaks, rescaled above zero',full:'Positive and negative partners'}[selected];
- data=calculate(p);const series=[{key:'target',color:colors.target,dash:'6 5'},...['positive','normalized','full'].filter(k=>compare||k===selected).map(key=>({key,color:colors[key],width:key===selected?3.5:2,dash:key==='normalized'?'3 3':''}))];chart('spectrum',data,series,0,1,300,'Friction Λ (arb. units)');
+ data=calculate(p);const series=[...(p.shape==='dos'&&isDiscrete()?[]:[{key:'target',color:colors.target,dash:'6 5'}]),...['positive','normalized','full'].filter(k=>compare||k===selected).map(key=>({key,color:colors[key],width:key===selected?3.5:2,dash:key==='normalized'?'3 3':''}))];chart('spectrum',data,series,0,1,300,'Friction Λ (arb. units)');
  for(const k of ['positive','normalized','full'])$(k==='positive'?'positiveValue':k==='normalized'?'normalizedValue':'fullValue').textContent=data[0][k].toFixed(3);
  $('takeaway').textContent=p.shape==='dos'?'This is the friction derived from your DOS above, including its finite band edges. Changing the DOS updates these curves. Choose the ideal flat test to isolate the boundary effect from physical spectral structure.':p.shape==='flat'?(p.level===0?'A zero spectrum stays zero. Increase the background to test the boundary.':'At zero: orange retains half the starting height; purple recovers about 69%; green preserves all of it. Change the smoothing width: the false dip spreads or narrows, but these percentages stay the same.'):'This starting spectrum is not flat, so smoothing can change its shape. Compare the colored curves with each other to see the effect of omitting partners; even the green curve need not follow the original dashed line.';
+ if(p.shape==='dos'&&isDiscrete())$('takeaway').textContent='These curves are exact Gaussian sums over the discrete transitions above. The unbroadened input consists of delta peaks, so there is no dashed smooth input curve. Negative partners double the positive-only value at zero for any fixed width. For fixed distinct levels, both values tend to zero as the width tends to zero.';
  const mass=Phi(p.delta/p.sigma),range=Math.max(0.8,p.delta+4*p.sigma),rows=Array.from({length:401},(_,i)=>{const x=(i/400*2-1)*range,g=phi((x-p.delta)/p.sigma)/p.sigma;return {x,positive:g,normalized:g/mass,full:phi((x+p.delta)/p.sigma)/p.sigma};});
  const ks=[{key:'positive',color:colors.positive},...(compare||norm?[{key:'normalized',color:colors.normalized,dash:'3 3'}]:[]),...(compare||neg?[{key:'full',color:colors.full}]:[])];chart('kernel',rows,ks,-range,range,260,'Kernel weight (1/eV)',true);
  $('weight').textContent=`To the right of zero, orange supplies ${(100*mass).toFixed(1)}% of one peak’s total weight and green supplies ${(100*(1-mass)).toFixed(1)}%. They add to 100%. Purple reaches 100% by multiplying orange by ${(1/mass).toFixed(3)} instead. These percentages describe area, not height.`;
@@ -155,9 +163,10 @@ for(const id of ['shape','level','height','feature','sigma','delta','compare'])$
 $('negative').addEventListener('change',()=>{if($('negative').checked)$('normalize').checked=false;render();});
 $('normalize').addEventListener('change',()=>{if($('normalize').checked)$('negative').checked=false;render();});
 $('reset').addEventListener('click',()=>{for(const [k,v] of Object.entries({shape:'flat',level:1,height:1.5,feature:0.3,sigma:0.12,delta:0.12}))$(k).value=v;$('negative').checked=false;$('normalize').checked=false;$('compare').checked=true;render();});
-$('download').addEventListener('click',()=>{const p=settings(),csv='# '+JSON.stringify({...p,...(p.shape==='dos'?{dos:dosParams}:{})})+'\nenergy_eV,input,positive_only,peak_normalized,with_negative_partners\n'+data.map(r=>[r.x,r.target,r.positive,r.normalized,r.full].join(',')).join('\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'})),a=document.createElement('a');a.href=url;a.download='friction-broadening.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
-const dosIds=['dosShape','dosLevel','dosBand','dosCoupling','dosCenter','dosWidth','dosGap','dosTemp'];
-let dosCache=[],dosParams;
+$('download').addEventListener('click',()=>{const p=settings(),csv='# '+JSON.stringify({...p,...(p.shape==='dos'?{dos:dosParams}:{})})+'\nenergy_eV,input,positive_only,peak_normalized,with_negative_partners\n'+data.map(r=>[r.x,r.target??'',r.positive,r.normalized,r.full].join(',')).join('\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'})),a=document.createElement('a');a.href=url;a.download='friction-broadening.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+const dosIds=['dosShape','dosLevel','dosBand','dosCoupling','dosCenter','dosWidth','dosGap','dosTemp','dosCount','dosIrregular'];
+let dosCache=[],dosParams,discreteLevels=[],discretePairs=[];
+function isDiscrete(){return dosParams?.dosShape==='discrete';}
 function dosSettings(){return Object.fromEntries(dosIds.map(id=>[id,id==='dosShape'?$(id).value:+$(id).value]));}
 function density(x,p){if(Math.abs(x)>p.dosBand)return 0;if(p.dosShape==='gap'&&Math.abs(x)<p.dosGap/2)return 0;return p.dosLevel*(1+(p.dosShape==='peak'?2*Math.exp(-0.5*((x-p.dosCenter)/p.dosWidth)**2):0));}
 function zeroTempJdos(E,p){if(E<=0)return 0;const lo=Math.max(-E,-p.dosBand),hi=Math.min(0,p.dosBand-E);if(hi<=lo)return 0;
@@ -180,9 +189,14 @@ function transitionWeights(E,p){if(!p.dosTemp){const up=zeroTempJdos(E,p);return
 function jdosAt(E,p){return transitionWeights(E,p).net;}
 function zeroFriction(p){if(!p.dosTemp)return p.dosCoupling*density(0,p)**2;return p.dosCoupling*thermalIntegral(0,p,x=>density(x,p)**2*fermi(x,p.dosTemp)*fermi(-x,p.dosTemp)/(kB*p.dosTemp));}
 function dosFrictionAt(E){const t=E/0.002,i=Math.floor(t);if(i>=dosCache.length-1)return 0;return dosCache[i].friction+(dosCache[i+1].friction-dosCache[i].friction)*(t-i);}
-function rebuildDos(){dosParams=dosSettings();const p=dosParams;dosCache=Array.from({length:3001},(_,i)=>{const x=i*.002,w=transitionWeights(x,p);return {x,jdos:w.net,up:w.up,down:w.down,friction:x?p.dosCoupling*w.net/x:zeroFriction(p)};});renderDos();if($('shape').value==='dos')render();}
-function renderDos(){const p=dosParams;for(const id of dosIds.filter(x=>x!=='dosShape'))$(id+'Out').textContent=(id==='dosTemp'?p[id].toFixed(0):p[id].toFixed(2))+(id==='dosTemp'?' K':['dosBand','dosCenter','dosWidth','dosGap'].includes(id)?' eV':'');
+function rebuildDos(){dosParams=dosSettings();const p=dosParams;if(isDiscrete()){buildDiscrete(p);dosCache=[];}else dosCache=Array.from({length:3001},(_,i)=>{const x=i*.002,w=transitionWeights(x,p);return {x,jdos:w.net,up:w.up,down:w.down,friction:x?p.dosCoupling*w.net/x:zeroFriction(p)};});renderDos();if($('shape').value==='dos')render();}
+function renderDos(){const p=dosParams;for(const id of dosIds.filter(x=>x!=='dosShape'))$(id+'Out').textContent=(['dosTemp','dosCount'].includes(id)?p[id].toFixed(0):p[id].toFixed(2))+(id==='dosTemp'?' K':['dosBand','dosCenter','dosWidth','dosGap'].includes(id)?' eV':'');
+ $('dosCountControl').hidden=$('dosIrregularControl').hidden=!isDiscrete();
+ document.querySelectorAll('.continuum-only').forEach(el=>el.hidden=isDiscrete());
+ $('discreteFrictionExplanation').hidden=$('discreteDosNote').hidden=!isDiscrete();
+ $('frictionHeading').textContent=isDiscrete()?'Each state pair contributes a friction line':'A vanishing JDOS can still give finite friction';
  $('dosCenterControl').hidden=$('dosWidthControl').hidden=p.dosShape!=='peak';$('dosGapControl').hidden=p.dosShape!=='gap';
+ if(isDiscrete()){renderDiscreteDos(p);return;}
  const drows=Array.from({length:601},(_,i)=>{const x=(i/600*2-1)*p.dosBand*1.1;const dos=density(x,p),f=fermi(x,p.dosTemp);return {x,dos,occupied:dos*f,empty:dos*(1-f)};});
  chart('dosPlot',drows,[{key:'dos',color:colors.target,dash:'5 4'},{key:'occupied',color:'#176399'},{key:'empty',color:colors.positive,dash:'3 3'}],-p.dosBand*1.1,p.dosBand*1.1,260,'DOS (arb. units)',false,'Electron energy ε − εF (eV)');
  const zoom=Math.min(p.dosBand,Math.max(.1,8*kB*p.dosTemp)),oc=Array.from({length:401},(_,i)=>{const x=(i/400*2-1)*zoom;return {x,f:fermi(x,p.dosTemp)};});chart('occupationPlot',oc,[{key:'f',color:'#176399'}],-zoom,zoom,220,'Occupation probability f',false,'Electron energy ε − μ (eV)');
@@ -194,8 +208,62 @@ function renderDos(){const p=dosParams;for(const id of dosIds.filter(x=>x!=='dos
 }
 for(const id of dosIds)$(id).addEventListener('input',rebuildDos);
 $('useDos').addEventListener('click',()=>{$('shape').value='dos';render();$('smearing').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
-$('resetDos').addEventListener('click',()=>{for(const [k,v] of Object.entries({dosShape:'flat',dosLevel:1,dosBand:2,dosCoupling:1,dosCenter:0,dosWidth:.15,dosGap:.3,dosTemp:0}))$(k).value=v;rebuildDos();});
-$('downloadDos').addEventListener('click',()=>{const p=dosParams,lines=['# '+JSON.stringify(p),'# Equilibrium Fermi occupations; chemical potential fixed at zero; constant coupling; no momentum selection; common prefactors omitted.','energy_eV,DOS_at_energy_relative_to_mu,fermi_occupation,upward_weight,downward_weight,net_weight,friction'];for(let i=-1500;i<=3000;i++){const x=i*.002;lines.push([x,density(x,p),fermi(x,p.dosTemp),i<0?'':dosCache[i].up,i<0?'':dosCache[i].down,i<0?'':dosCache[i].jdos,i<0?'':dosCache[i].friction].join(','));}const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'})),a=document.createElement('a');a.href=url;a.download='dos-jdos-friction.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+$('resetDos').addEventListener('click',()=>{for(const [k,v] of Object.entries({dosShape:'flat',dosLevel:1,dosBand:2,dosCoupling:1,dosCenter:0,dosWidth:.15,dosGap:.3,dosTemp:0,dosCount:24,dosIrregular:.4}))$(k).value=v;rebuildDos();});
+$('downloadDos').addEventListener('click',()=>{if(isDiscrete()){downloadDiscrete();return;}const p=dosParams,lines=['# '+JSON.stringify(p),'# Equilibrium Fermi occupations; chemical potential fixed at zero; constant coupling; no momentum selection; common prefactors omitted.','energy_eV,DOS_at_energy_relative_to_mu,fermi_occupation,upward_weight,downward_weight,net_weight,friction'];for(let i=-1500;i<=3000;i++){const x=i*.002;lines.push([x,density(x,p),fermi(x,p.dosTemp),i<0?'':dosCache[i].up,i<0?'':dosCache[i].down,i<0?'':dosCache[i].jdos,i<0?'':dosCache[i].friction].join(','));}const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'})),a=document.createElement('a');a.href=url;a.download='dos-jdos-friction.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+
+// Weighted discrete sampling of a flat band. Symmetry fixes half filling at μ=0.
+function buildDiscrete(p){
+ const h=2*p.dosBand/p.dosCount,weight=p.dosLevel*h;
+ const positive=Array.from({length:p.dosCount/2},(_,i)=>(i+.5+.4*p.dosIrregular*Math.sin((i+1)*2.39996323))*h);
+ discreteLevels=[...positive.map(x=>-x),...positive].sort((a,b)=>a-b).map((x,i)=>({i:i+1,x,weight,f:fermi(x,p.dosTemp)}));
+ discretePairs=[];
+ for(let i=0;i<discreteLevels.length;i++)for(let j=i+1;j<discreteLevels.length;j++){
+  const a=discreteLevels[i],b=discreteLevels[j],x=b.x-a.x;
+  const up=weight*weight*a.f*fermi(-b.x,p.dosTemp);
+  const down=p.dosTemp?up*Math.exp(-x/(kB*p.dosTemp)):0;
+  const net=p.dosTemp?up*(-Math.expm1(-x/(kB*p.dosTemp))):up;
+  discretePairs.push({i:a.i,j:b.i,x,up,down,jdos:net,friction:p.dosCoupling*net/x});
+ }
+}
+function calculateDiscrete(p){
+ return Array.from({length:251},(_,i)=>{
+  const x=i/250;let positive=0,normalized=0,negative=0;
+  for(const pair of discretePairs){
+   const contribution=pair.friction*phi((x-pair.x)/p.sigma)/p.sigma;
+   positive+=contribution;normalized+=contribution/Phi(pair.x/p.sigma);
+   negative+=pair.friction*phi((x+pair.x)/p.sigma)/p.sigma;
+  }
+  return {x,target:null,positive,normalized,full:positive+negative};
+ });
+}
+function discreteLines(){
+ // Sum coincident delta peaks for the stick plots only. Broadening uses every pair.
+ const lines=new Map();
+ for(const p of discretePairs){const key=p.x.toFixed(10);if(!lines.has(key))lines.set(key,{x:p.x,up:0,down:0,jdos:0,friction:0});const r=lines.get(key);for(const k of ['up','down','jdos','friction'])r[k]+=p[k];}
+ return [...lines.values()].sort((a,b)=>a.x-b.x);
+}
+function renderDiscreteDos(p){
+ const rows=discreteLevels.map(l=>({x:l.x,dos:l.weight,occupied:l.weight*l.f,empty:l.weight*fermi(-l.x,p.dosTemp)}));
+ chart('dosPlot',rows,[{key:'dos',color:colors.target,sticks:true,width:5},{key:'occupied',color:'#176399',sticks:true,offset:-2},{key:'empty',color:colors.positive,sticks:true,offset:2}],-p.dosBand*1.1,p.dosBand*1.1,260,'State weight (arb. units)',false,'Electron energy ε − μ (eV)');
+ const zoom=Math.min(p.dosBand,Math.max(.1,8*kB*p.dosTemp,2*p.dosBand/p.dosCount));
+ const oc=Array.from({length:401},(_,i)=>{const x=(i/400*2-1)*zoom;return {x,f:fermi(x,p.dosTemp)};});
+ chart('occupationPlot',oc,[{key:'f',color:'#176399'}],-zoom,zoom,220,'Occupation probability f',false,'Electron energy ε − μ (eV)');
+ const lines=discreteLines(),end=Math.max(1,2*p.dosBand);
+ chart('jdosPlot',lines,[{key:'up',color:'#176399',sticks:true,width:4},{key:'down',color:colors.normalized,sticks:true,offset:2},{key:'jdos',color:colors.positive,sticks:true,offset:-2}],0,end,260,'Transition line weight',false,'Transition energy Δ (eV)');
+ chart('dosFrictionPlot',lines,[{key:'friction',color:colors.full,sticks:true}],0,end,260,'Friction line weight',false,'Transition energy Δ (eV)');
+ const active=discretePairs.filter(r=>r.jdos>0),min=active.length?Math.min(...active.map(r=>r.x)):0;
+ $('discreteDosNote').textContent=`${p.dosCount} distinct levels; total DOS weight ${(2*p.dosBand*p.dosLevel).toFixed(3)}. The sticks represent integrated delta-peak weights, not a smoothed DOS. Blue and orange sticks are slightly offset to keep occupied and empty weights visible. Only these levels contain states; the continuous Fermi curve below is an occupation rule, not extra states between the levels.`;
+ $('temperatureNote').textContent=`T = ${p.dosTemp} K; kBT = ${(kB*p.dosTemp).toFixed(4)} eV. Each level is weighted by its Fermi occupation at μ = 0. Symmetric levels keep the total occupation at half the DOS weight. Temperature changes weights, not level energies or peak widths.`;
+ $('jdosTemperatureNote').textContent=`${discretePairs.length} distinct upward-oriented pairs (i < j); ${active.length} have nonzero net weight at the displayed numerical precision. Smallest contributing transition: ${min.toFixed(4)} eV. Coincident transition energies are combined in the sticks. Diagonal pairs are excluded. The net spectrum has negative-weight partners at −Δ; the plot shows its positive branch.`;
+ $('dosLesson').textContent=`No zero-energy transition exists in this finite model. Each friction stick divides a transition's net weight by its own Δ, before any broadening. The first contributing line is at ${min.toFixed(4)} eV. Gaussian tails can still give finite friction at zero in section 4.`;
+}
+function downloadDiscrete(){
+ const lines=['# '+JSON.stringify(dosParams),'# Delta-peak integrated weights; all distinct i<j pairs; no diagonal or momentum selection.','type,i,j,electron_energy_eV,level_weight,occupation,transition_energy_eV,upward_weight,downward_weight,net_weight,friction_weight'];
+ for(const l of discreteLevels)lines.push(['level',l.i,'',l.x,l.weight,l.f,'','','','',''].join(','));
+ for(const p of discretePairs)lines.push(['pair',p.i,p.j,'','','',p.x,p.up,p.down,p.jdos,p.friction].join(','));
+ const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'})),a=document.createElement('a');a.href=url;a.download='discrete-levels-and-transitions.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
 window.addEventListener('resize',()=>{render();renderDos();});
 rebuildDos();
 render();
