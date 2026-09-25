@@ -70,12 +70,14 @@ function ringPattern(p, amplitude=1) {
   const coords=sequence(p.P,j=>{
     const k=p.mode>p.P/2?p.P-p.mode:p.mode;
     const displacement=p.mode===0?1:p.mode>p.P/2?Math.sin(2*Math.PI*k*j/p.P):Math.cos(2*Math.PI*k*j/p.P);
-    const angle=2*Math.PI*j/p.P-Math.PI/2,r=radius+24*amplitude*displacement;
-    return {x:p.P===1?cx+30*amplitude:cx+r*Math.cos(angle),y:p.P===1?cy:cy+r*Math.sin(angle),displacement,j};
+    const angle=2*Math.PI*j/p.P-Math.PI/2;
+    // Every bead moves along the same Cartesian axis: the centroid is a rigid translation.
+    return {x:cx+radius*Math.cos(angle)+24*amplitude*displacement,y:cy+radius*Math.sin(angle),displacement:amplitude*displacement,j};
   });
   let html='<title>Bead connectivity with a schematic mode displacement</title>';
   if(p.P>1) html+=`<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#d4dfd8" stroke-dasharray="4 5"/><path d="${coords.map((q,i)=>`${i?'L':'M'}${q.x},${q.y}`).join(' ')} Z" fill="none" stroke="#b7c9bf" stroke-width="2"/>`;
-  html+='<line x1="254" x2="266" y1="155" y2="155" stroke="#9caea4"/><line x1="260" x2="260" y1="149" y2="161" stroke="#9caea4"/>';
+  const centroidX=cx+(p.mode===0?24*amplitude:0);
+  html+=`<g aria-label="Centroid"><line x1="${centroidX-6}" x2="${centroidX+6}" y1="155" y2="155" stroke="#9caea4"/><line x1="${centroidX}" x2="${centroidX}" y1="149" y2="161" stroke="#9caea4"/></g>`;
   coords.forEach(q=>{html+=`<circle cx="${q.x}" cy="${q.y}" r="${p.P>64?2.2:p.P>24?4:7}" fill="${q.displacement>=-1e-10?GREEN:ORANGE}"><title>Bead ${q.j}: relative displacement ${q.displacement.toFixed(3)}</title></circle>`;if(p.P<=16)html+=`<text x="${cx+(q.x-cx)*1.17}" y="${cy+(q.y-cy)*1.17+4}" text-anchor="middle">${q.j}</text>`;});
   html+=`<text x="260" y="315" text-anchor="middle">Mode ${p.mode} · ${p.P} ${p.P===1?'bead':'beads'} · green + / orange − displacement</text>`;
   svg.innerHTML=html;

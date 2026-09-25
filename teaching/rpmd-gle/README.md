@@ -8,9 +8,12 @@ A static RPMD-GLE teaching page. Open through an HTTP server (for example
 
 This lesson describes a scalar, mass-scaled, linear system–bath coupling.
 It is not a simulation of quantum trajectories or an atomistic friction tensor.
-The ring view displays real free-ring-polymer mode patterns; its radial layout,
-displacement amplitude and animation speed are schematic. The centroid pattern
-is uniform; conjugate indices show cosine/sine partners. P is bounded to 256
+The ring view displays real free-ring-polymer mode patterns on a schematic
+circular reference layout. Every bead displacement is along the same horizontal
+Cartesian axis. The centroid mode translates the entire ring rigidly; internal
+modes preserve its centroid. The cross follows the centroid, and the dashed
+circle marks the undisplaced layout. Amplitude and animation speed are
+illustrative. Conjugate indices show cosine/sine partners. P is bounded to 256
 for the visualizer. This is a UI bound, not a physical restriction.
 
 Angular frequencies and A entries are in fs^-1; kernels and alpha in fs^-2.
