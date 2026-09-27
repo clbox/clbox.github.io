@@ -10,6 +10,9 @@ const Model=(()=>{
  function erf(x){const t=1/(1+.3275911*Math.abs(x));return Math.sign(x)*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x));}
  function samples(p,max=.6){const h=Math.min(p.sigma/12,p.gamma/30,.002),n=Math.ceil((max+8*p.sigma)/h),d=(max+8*p.sigma)/n;return Array.from({length:n},(_,i)=>{const x=(i+.5)*d;return {x,v:exact(x,p),d};});}
  function broaden(e,p,s){let positive=0,normal=0,both=0,signed=0;for(const {x,v,d} of s){const gp=gauss(e-x,p.sigma),gm=gauss(e+x,p.sigma);positive+=v*gp*d;normal+=v*gp/(.5*(1+erf(x/(p.sigma*Math.SQRT2))))*d;both+=v*(gp+gm)*d;signed+=e===0?v*2*x*x/(p.sigma*p.sigma)*gm*d:v*x*gp*(-Math.expm1(-2*e*x/(p.sigma*p.sigma)))/e*d;}return {positive,normal,both,signed};}
- return {kb,rho,zero,exact,samples,broaden};
+ // Each electronic delta is independently replaced by a Gaussian of width sigma.
+ function smearedRho(u,p){return integral(y=>rho(u+p.sigma*y,p)*Math.exp(-y*y/2)/Math.sqrt(2*Math.PI),-8,8,Math.min(.08,p.gamma/(40*p.sigma)));}
+ function doubleDelta(p){const t=kb*p.temp;if(!t)return Math.PI*p.g*p.g*smearedRho(0,p)**2;return Math.PI*p.g*p.g*integral(y=>{const z=f(y);return smearedRho(t*y,p)**2*z*(1-z);},-32,32,Math.min(.08,Math.max(p.gamma,p.sigma)/(40*t)));}
+ return {kb,rho,zero,exact,samples,broaden,doubleDelta};
 })();
 if(typeof module!=='undefined')module.exports=Model;

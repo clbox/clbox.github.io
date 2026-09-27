@@ -25,4 +25,4 @@ Explore ring-polymer modes by changing bead count and temperature, see how each 
 
 [**A model with a known friction**]({{ '/teaching/resonant-level/' | relative_url }})
 
-Adjust level energy, physical width, temperature and Gaussian broadening. Compare the published equilibrium result and continuum frequency response with four broadening prescriptions.
+Adjust level energy, physical width, temperature and Gaussian broadening. Compare the published equilibrium result and continuum frequency response with single-delta and double-delta broadening prescriptions.
