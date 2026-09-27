@@ -26,3 +26,10 @@ Explore ring-polymer modes by changing bead count and temperature, see how each 
 [**A model with a known friction**]({{ '/teaching/resonant-level/' | relative_url }})
 
 Adjust level energy, physical width, temperature and Gaussian broadening. Compare the published equilibrium result and continuum frequency response with single-delta and double-delta broadening prescriptions.
+
+
+## Frictional memory
+
+[**An oscillator with memory**]({{ '/teaching/harmonic-bath/' | relative_url }})
+
+Explore an exactly solvable harmonic bath. Adjust the memory time, friction strength, and oscillator frequency, then compare the spectrum, motion, and energy with instantaneous friction.
