@@ -62,6 +62,10 @@ plugins:
 
 defaults:
   - scope:
+      path: internal
+    values:
+      sitemap: false
+  - scope:
       path: assets
     values:
       sitemap: false
