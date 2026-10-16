@@ -1,10 +1,10 @@
 {
   "mace": {
     "structures": 6891,
-    "sha256": "dc870fce9683f3c0f500f93bfdc49e6fa71b7f295ece98c03cd33af4c60613ad"
+    "sha256": "af7cf04aeb9dd3d7e829c1402690111a5e796b8197f4456518efb58ae9e0f064"
   },
   "dft": {
     "structures": 23,
-    "sha256": "b358023ca54a94b39dc87b86b3e64cc4b602a00740f00ddbb8872bb1959abbe9"
+    "sha256": "0f750f84ccc7a434498d69ef6b5f7a624a2852e6fbd2b00e67ca2b7804b0f6fa"
   }
 }
