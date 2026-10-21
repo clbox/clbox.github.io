@@ -378,8 +378,8 @@ if (sessionStorage.getItem('meptcdi-access') !== 'yes') location.replace('./');
             } else {
                 if (sessionStorage.getItem('meptcdi-access') !== 'yes') return;
                 const choice = new URLSearchParams(location.search).get('dataset');
-                if (!['mace', 'dft'].includes(choice)) throw Error('Select MACE or DFT from the landing page.');
-                const response = await fetch('./' + choice + '.json.gz');
+                if (!['mace', 'mace_relaxed', 'dft'].includes(choice)) throw Error('Select a dataset from the landing page.');
+                const response = await fetch('./' + choice + '.json.gz', {cache: 'no-cache'});
                 if (!response.ok) throw Error('Dataset download failed: ' + response.status);
                 const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
                 const data = await new Response(stream).text();

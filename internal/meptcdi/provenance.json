@@ -6,5 +6,9 @@
   "dft": {
     "structures": 23,
     "sha256": "0f750f84ccc7a434498d69ef6b5f7a624a2852e6fbd2b00e67ca2b7804b0f6fa"
+  },
+  "mace_relaxed": {
+    "structures": 6875,
+    "sha256": "9918198adb36ae55a677ca71eb30f4cd631ebb24bae5b8362c40f6f5ce06b0e1"
   }
 }
