@@ -1,14 +1,14 @@
 {
   "mace": {
     "structures": 6891,
-    "sha256": "fca8956489a5fa584a2c817780b45cb4cf18b79fa6463a9cb4565ca4ca248a77"
+    "sha256": "ff287135ee7c78f26babeecec39a332f85560f8137644bccf9fcb8fa98ebfd5e"
   },
   "dft": {
-    "structures": 23,
-    "sha256": "39c6869cc064d87d77d2835d7fb8a110856db5aa1fa9a6c37d93a15a6afc6fe2"
+    "structures": 15,
+    "sha256": "28f0dd5ddee73a01c45a3774f3448dbb64f8a8436a7eefa901a35ef1fe9696d8"
   },
   "mace_relaxed": {
     "structures": 6875,
-    "sha256": "58d67c324a47198ec591fb9c491697781e03df40b083f61d93fbe26198451706"
+    "sha256": "d21c6bc9f7a1a8b5fab5e705cf84fa8032652cd45018e424dbe5b8cd7ece03fa"
   }
 }
