@@ -4,8 +4,8 @@
     "sha256": "ff287135ee7c78f26babeecec39a332f85560f8137644bccf9fcb8fa98ebfd5e"
   },
   "dft": {
-    "structures": 15,
-    "sha256": "28f0dd5ddee73a01c45a3774f3448dbb64f8a8436a7eefa901a35ef1fe9696d8"
+    "structures": 18,
+    "sha256": "0dd5f5bbee4e2a7ec8a75ae3f6cc30d97560697a36ca3ebd1a81c40ee4ff5bcf"
   },
   "mace_relaxed": {
     "structures": 9065,
